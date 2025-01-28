@@ -125,7 +125,7 @@
     "@tiptap/pm": "2.11.3",
     "@tiptap/react": "2.11.3",
     "@tiptap/starter-kit": "2.11.3",
-    "date-fns": "^4.1.0",
+    "date-fns": "^2.29.3",
     "flat": "^6.0.1",
     "hoist-non-react-statics": "3.3.2",
     "jw-paginate": "^1.0.4",
