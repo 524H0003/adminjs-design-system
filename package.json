@@ -135,7 +135,7 @@
     "react-datepicker": "^7.6.0",
     "react-feather": "^2.0.10",
     "react-phone-input-2": "^2.15.1",
-    "react-select": "^5.8.0",
+    "react-select": "5.8.0",
     "react-text-mask": "^5.5.0",
     "styled-components": "6.1.14",
     "styled-system": "^5.1.5",
