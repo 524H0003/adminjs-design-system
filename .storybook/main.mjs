@@ -3,8 +3,6 @@ import path from 'path'
 import ResolveTypeScriptPlugin from 'resolve-typescript-plugin'
 import TypeScriptConfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 
-const __dirname = path.resolve()
-
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
   stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -94,7 +92,9 @@ const config = {
       },
     },
   },
-  docs: {},
+  docs: {
+    autodocs: true,
+  },
 }
 
 export default config

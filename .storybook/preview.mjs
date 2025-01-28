@@ -51,4 +51,3 @@ export const globalTypes = {
     },
   },
 }
-export const tags = ['autodocs'];
