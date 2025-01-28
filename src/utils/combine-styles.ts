@@ -27,7 +27,7 @@ import type { Theme, ThemeOverride } from './default-theme.interface.js'
 const combineStyles = (...overrides: (Partial<ThemeOverride> | undefined)[]): Theme => {
   const merged: Partial<ThemeOverride>[] = merge(
     flatten(theme as Theme),
-    ...overrides.map((o = {}) => flatten(o))
+    ...overrides.map((o = {}) => flatten(o)),
   )
   return unflatten(merged)
 }
