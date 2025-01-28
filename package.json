@@ -70,7 +70,7 @@
     "@storybook/test": "^8.5.2",
     "@storybook/theming": "^8.5.2",
     "@types/hoist-non-react-statics": "3.3.6",
-    "@types/react": "^19.0.8",
+    "@types/react": "18.2.0",
     "@types/react-datepicker": "^7.0.0",
     "@types/react-text-mask": "^5.4.11",
     "@types/styled-components": "^5.1.26",
