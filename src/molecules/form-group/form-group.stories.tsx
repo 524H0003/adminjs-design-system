@@ -1,5 +1,5 @@
-import { Meta, StoryFn } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryFn } from '@storybook/react';
+import React from 'react';
 
 import {
   Box,
@@ -10,9 +10,9 @@ import {
   Icon,
   Input,
   Label,
-} from '../../index.js'
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { FormGroup, FormMessage, InputGroup } from './index.js'
+} from '../../index.js';
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { FormGroup, FormMessage, InputGroup } from './index.js';
 
 export const FullFeaturedFormGroup: StoryFn = () => (
   <FormGroup>
@@ -44,7 +44,7 @@ export const FullFeaturedFormGroup: StoryFn = () => (
     </InputGroup>
     <FormMessage>With an message below</FormMessage>
   </FormGroup>
-)
+);
 
 export const Full: StoryFn = () => (
   <Box width={1}>
@@ -52,11 +52,11 @@ export const Full: StoryFn = () => (
       <FullFeaturedFormGroup />
     </StoryWrapper>
   </Box>
-)
+);
 
 const meta: Meta<typeof FormGroup> = {
   title: 'DesignSystem/Molecules/FormGroup',
   component: FormGroup,
-}
+};
 
-export default meta
+export default meta;

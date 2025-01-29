@@ -1,12 +1,12 @@
-import { rgba } from 'polished'
-import { styled } from '@styled-components'
+import { rgba } from 'polished';
+import { styled } from '@styled-components';
 
-import { Box } from '../../atoms/box/index.js'
-import { Title } from '../../atoms/typography/index.js'
-import { themeGet } from '../../utils/index.js'
-import { NavigationElementProps } from './navigation-element-props.js'
+import { Box } from '../../atoms/box/index.js';
+import { Title } from '../../atoms/typography/index.js';
+import { themeGet } from '../../utils/index.js';
+import { NavigationElementProps } from './navigation-element-props.js';
 
-export type StyledNavigationElementProps = Pick<NavigationElementProps, 'isSelected' | 'isOpen'>
+export type StyledNavigationElementProps = Pick<NavigationElementProps, 'isSelected' | 'isOpen'>;
 
 export const StyledNavigationElement: any = styled(Box)<StyledNavigationElementProps>`
   padding: ${themeGet('space', 'md', '-1px')} ${themeGet('space', 'lg')};
@@ -22,7 +22,8 @@ export const StyledNavigationElement: any = styled(Box)<StyledNavigationElementP
     align-self: center;
   }
 
-  & > .icon-box, & > .arrow-box {
+  & > .icon-box,
+  & > .arrow-box {
     flex-shrink: 0;
     color: ${({ theme }) => theme.colors.grey60};
   }
@@ -38,20 +39,14 @@ export const StyledNavigationElement: any = styled(Box)<StyledNavigationElementP
     text-overflow: ellipsis;
     ${({ isSelected }) => isSelected && { fontWeight: 500 }}
   }
- 
-  ${({ theme, isSelected }) => isSelected && {
-    backgroundColor: rgba(theme.colors.primary100, 0.2),
-    color: theme.colors.primary100,
-    '& > .icon-box': {
-      color: 'inherit',
-    },
-  }}
 
-  ${({ theme, isSelected }) => !isSelected && {
-    '&:hover': {
-      backgroundColor: rgba(theme.colors.text, 0.2),
-    },
-  }};
+  ${({ theme, isSelected }) =>
+    isSelected && {
+      backgroundColor: rgba(theme.colors.primary100, 0.2),
+      color: theme.colors.primary100,
+      '& > .icon-box': { color: 'inherit' },
+    }}
 
-  
-`
+  ${({ theme, isSelected }) =>
+    !isSelected && { '&:hover': { backgroundColor: rgba(theme.colors.text, 0.2) } }};
+`;

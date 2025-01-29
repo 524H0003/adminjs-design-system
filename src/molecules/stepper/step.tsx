@@ -1,11 +1,11 @@
-import React from 'react'
-import { SpaceProps, space } from 'styled-system'
-import { styled } from '@styled-components'
+import React from 'react';
+import { SpaceProps, space } from 'styled-system';
+import { styled } from '@styled-components';
 
-import { Icon } from '../../atoms/icon/index.js'
-import { Text } from '../../atoms/text/index.js'
-import { Box, BoxProps } from '../../atoms/box/index.js'
-import { cssClass } from '../../utils/css-class.js'
+import { Icon } from '../../atoms/icon/index.js';
+import { Text } from '../../atoms/text/index.js';
+import { Box, BoxProps } from '../../atoms/box/index.js';
+import { cssClass } from '../../utils/css-class.js';
 
 /**
  * Handler which is invoked when user clicks given step
@@ -18,7 +18,7 @@ export type OnStepClickHandler = (
    * The same number what was passed to a {@link Step}
    */
   number?: number | string
-) => boolean | void
+) => boolean | void;
 
 /**
  * @alias StepProps
@@ -38,23 +38,23 @@ export type StepProps = {
   /** Optional className */
   className?: string;
   children?: React.ReactNode;
-}
+};
 
 const Circle = styled(Box)<BoxProps>`
   border-width: 1px;
   border-style: solid;
   border-radius: 9999px;
   text-align: center;
-`
+`;
 
 Circle.defaultProps = {
   py: 'default',
   px: 'default',
   minWidth: '34px',
   height: '34px',
-}
+};
 
-type StyledStepProps = SpaceProps & Pick<StepProps, 'active' | 'disabled'>
+type StyledStepProps = SpaceProps & Pick<StepProps, 'active' | 'disabled'>;
 
 const StyledStep = styled.div<StyledStepProps>`
   flex: 1 1 0px;
@@ -63,11 +63,12 @@ const StyledStep = styled.div<StyledStepProps>`
 
   & > ${Box} {
     ${({ disabled }): string => (!disabled ? 'cursor: pointer' : '')};
-    border-bottom: 2px solid ${({ active, theme }): string => (active ? theme.colors.primary100 : 'transparent')};
+    border-bottom: 2px solid
+      ${({ active, theme }): string => (active ? theme.colors.primary100 : 'transparent')};
   }
-  
+
   ${space};
-`
+`;
 
 /**
  * @classdesc
@@ -122,7 +123,7 @@ const StyledStep = styled.div<StyledStepProps>`
  * @section design-system
  */
 const Step: React.FC<StepProps> = (props) => {
-  const { number, completed, children, active, disabled, onClick, className } = props
+  const { number, completed, children, active, disabled, onClick, className } = props;
 
   return (
     <StyledStep
@@ -144,19 +145,17 @@ const Step: React.FC<StepProps> = (props) => {
           borderColor={active ? 'primary100' : 'grey40'}
           color={active ? 'primary100' : 'grey40'}
         >
-          {completed ? (
-            <Icon icon="Check" color="white" />
-          ) : number}
+          {completed ? <Icon icon="Check" color="white" /> : number}
         </Circle>
         <Text my="sm" pl="default" py="sm" color={active || completed ? 'grey100' : 'grey40'}>
           {children}
         </Text>
       </Box>
     </StyledStep>
-  )
-}
+  );
+};
 
-Step.displayName = 'Step'
+Step.displayName = 'Step';
 
-export { Step }
-export default Step
+export { Step };
+export default Step;

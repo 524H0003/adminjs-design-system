@@ -1,7 +1,7 @@
-import { styled } from '@styled-components'
-import { zIndex, ZIndexProps } from 'styled-system'
+import { styled } from '@styled-components';
+import { zIndex, ZIndexProps } from 'styled-system';
 
-import { cssClass } from '../../utils/css-class.js'
+import { cssClass } from '../../utils/css-class.js';
 
 export const Overlay = styled.div<ZIndexProps>`
   width: 100%;
@@ -13,12 +13,12 @@ export const Overlay = styled.div<ZIndexProps>`
   z-index: 999;
 
   ${zIndex}
-`
+`;
 
 Overlay.defaultProps = {
   className: cssClass('Overlay'),
-}
+};
 
-Overlay.displayName = 'Overlay'
+Overlay.displayName = 'Overlay';
 
-export default Overlay
+export default Overlay;

@@ -1,18 +1,12 @@
-import {
-  color, space,
-  SpaceProps,
-  TypographyProps,
-  typography,
-  variant,
-} from 'styled-system'
-import { styled, css } from '@styled-components'
+import { color, space, SpaceProps, TypographyProps, typography, variant } from 'styled-system';
+import { styled, css } from '@styled-components';
 
-import { cssClass } from '../../utils/css-class.js'
-import themeGet from '../../utils/theme-get.js'
-import { NewColorProps as ColorProps } from '../../utils/color-props.js'
-import type { VariantType } from '../../theme.js'
+import { cssClass } from '../../utils/css-class.js';
+import themeGet from '../../utils/theme-get.js';
+import { NewColorProps as ColorProps } from '../../utils/color-props.js';
+import type { VariantType } from '../../theme.js';
 
-export type LabelVariantType = VariantType
+export type LabelVariantType = VariantType;
 
 const labelVariants = variant<any, LabelVariantType>({
   variants: {
@@ -56,7 +50,7 @@ const labelVariants = variant<any, LabelVariantType>({
     },
     default: {},
   },
-})
+});
 
 /**
  * Prop Types of a Label component.
@@ -70,31 +64,32 @@ const labelVariants = variant<any, LabelVariantType>({
  * @property {string} [...] Other props from {@link ColorProps}, {@link SpaceProps}
  *                          and {@link TypographyProps}
  */
-export type LabelProps = ColorProps & SpaceProps & TypographyProps & {
-  /** If label represents required field - appends star (*) */
-  required?: boolean;
-  /** If label should be in uppercase version */
-  uppercase?: boolean;
-  /** By default labels are displayed as a block. You can override this by setting `inline` */
-  inline?: boolean;
-  /** If label represents disabled field (dimmed version) */
-  disabled?: boolean;
-  /** Color variant */
-  variant?: LabelVariantType;
-  /** Label size */
-  size?: 'default' | 'lg'
-}
+export type LabelProps = ColorProps &
+  SpaceProps &
+  TypographyProps & {
+    /** If label represents required field - appends star (*) */
+    required?: boolean;
+    /** If label should be in uppercase version */
+    uppercase?: boolean;
+    /** By default labels are displayed as a block. You can override this by setting `inline` */
+    inline?: boolean;
+    /** If label represents disabled field (dimmed version) */
+    disabled?: boolean;
+    /** Color variant */
+    variant?: LabelVariantType;
+    /** Label size */
+    size?: 'default' | 'lg';
+  };
 
-const setDisabled = ({ disabled, theme }): any => (
+const setDisabled = ({ disabled, theme }): any =>
   disabled
     ? css`
-    color: ${theme.colors.grey40};
-    & .${cssClass('Icon')} svg {
-      stroke: ${theme.colors.grey40};
-    }
-  `
-    : css``
-)
+        color: ${theme.colors.grey40};
+        & .${cssClass('Icon')} svg {
+          stroke: ${theme.colors.grey40};
+        }
+      `
+    : css``;
 
 /**
  * @classdesc
@@ -135,7 +130,7 @@ const Label = styled.label<LabelProps>`
   margin-bottom: ${({ theme, inline }): string => (inline ? '0' : theme.space.default)};
 
   &:before {
-    content: "${({ required }): string => (required ? '*' : '')}";
+    content: '${({ required }): string => (required ? '*' : '')}';
     color: ${themeGet('colors', 'primary100')};
     margin-right: ${themeGet('space', 'sm')};
     display: ${({ required }): string => (required ? 'block-inline' : 'none')};
@@ -151,13 +146,13 @@ const Label = styled.label<LabelProps>`
   ${space};
   ${labelVariants};
   ${(props) => setDisabled(props as any)};
-`
+`;
 
 Label.defaultProps = {
   className: cssClass('Label'),
-}
+};
 
-Label.displayName = 'Label'
+Label.displayName = 'Label';
 
-export { Label }
-export default Label
+export { Label };
+export default Label;

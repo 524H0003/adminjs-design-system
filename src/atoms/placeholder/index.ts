@@ -1,1 +1,1 @@
-export * from './placeholder.jsx'
+export * from './placeholder.jsx';

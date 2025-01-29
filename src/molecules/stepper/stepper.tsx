@@ -1,7 +1,7 @@
-import { styled } from '@styled-components'
+import { styled } from '@styled-components';
 
-import { Box, BoxProps } from '../../atoms/box/index.js'
-import { cssClass } from '../../utils/css-class.js'
+import { Box, BoxProps } from '../../atoms/box/index.js';
+import { cssClass } from '../../utils/css-class.js';
 
 /**
  * @classdesc
@@ -102,8 +102,7 @@ import { cssClass } from '../../utils/css-class.js'
  *
  * @section design-system
  */
-const Stepper = styled(Box)<BoxProps>`
-`
+const Stepper = styled(Box)<BoxProps>``;
 
 Stepper.defaultProps = {
   flex: true,
@@ -111,8 +110,8 @@ Stepper.defaultProps = {
   borderBottom: '1px solid',
   borderBottomColor: 'separator',
   className: cssClass('Stepper'),
-}
-Stepper.displayName = 'Stepper'
+};
+Stepper.displayName = 'Stepper';
 
-export { Stepper }
-export default Stepper
+export { Stepper };
+export default Stepper;

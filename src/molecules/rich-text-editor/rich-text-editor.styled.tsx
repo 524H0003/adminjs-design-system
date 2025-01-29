@@ -1,11 +1,11 @@
-import { styled } from '@styled-components'
+import { styled } from '@styled-components';
 
-import { Box, BoxProps } from '../../atoms/box/index.js'
-import { InputCSS, InputProps } from '../../atoms/input/index.js'
-import { Text, TextProps } from '../../atoms/text/index.js'
-import { cssClass, themeGet } from '../../utils/index.js'
+import { Box, BoxProps } from '../../atoms/box/index.js';
+import { InputCSS, InputProps } from '../../atoms/input/index.js';
+import { Text, TextProps } from '../../atoms/text/index.js';
+import { cssClass, themeGet } from '../../utils/index.js';
 
-export type EditorWrapperProps = TextProps & InputProps & BoxProps
+export type EditorWrapperProps = TextProps & InputProps & BoxProps;
 
 export const EditorWrapper = styled(Text)<EditorWrapperProps>`
   position: relative;
@@ -21,12 +21,12 @@ export const EditorWrapper = styled(Text)<EditorWrapperProps>`
     right: ${themeGet('space', 'lg')};
     color: ${themeGet('colors', 'grey40')};
   }
-`
+`;
 EditorWrapper.defaultProps = {
   px: 'xl',
   py: 'xl',
   className: cssClass('EditorWrapper'),
-}
+};
 
 export const MenuBarWrapper: any = styled(Box)`
   border: 1px solid ${themeGet('colors', 'inputBorder')};
@@ -43,10 +43,10 @@ export const MenuBarWrapper: any = styled(Box)`
   & .active .${cssClass('Icon')} {
     stroke: ${themeGet('colors', 'primary100')};
   }
-`
+`;
 
 MenuBarWrapper.defaultProps = {
   px: 'md',
   py: 'md',
   className: cssClass('MenuBarWrapper'),
-}
+};

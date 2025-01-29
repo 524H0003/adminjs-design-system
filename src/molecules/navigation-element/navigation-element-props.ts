@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
-import React from 'react'
+import React from 'react';
 
-import type { IconProps } from '../../atoms/icon/index.js'
+import type { IconProps } from '../../atoms/icon/index.js';
 
 /**
  * Prop Types of a NavigationElement component.
@@ -10,8 +10,7 @@ import type { IconProps } from '../../atoms/icon/index.js'
  * @alias NavigationElementProps
  */
 export type NavigationElementProps = {
-  /** Link href property */
-  href?: string;
+  /** Link href property */ href?: string;
   /** Icon name */
   icon?: IconProps['icon'];
   /**
@@ -20,14 +19,14 @@ export type NavigationElementProps = {
    */
   isOpen?: boolean;
   /** If element should be selected */
-  isSelected?: boolean
+  isSelected?: boolean;
   /** Label of the element */
-  label: string,
+  label: string;
   /** Element uniq ID  */
-  id?: string,
+  id?: string;
   /** On Click handler */
   onClick?: NavigationElementOnClickHandler;
-}
+};
 
 /**
  * Handler function for a NavigationElementProps['onClick']
@@ -40,4 +39,4 @@ export type NavigationElementOnClickHandler = (
   event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
   /** All props (along with the `id`) are also passed to the handler */
   props: NavigationElementProps
-) => void
+) => void;

@@ -1,12 +1,12 @@
-import { StoryObj, Meta, StoryFn } from '@storybook/react'
-import React from 'react'
+import { StoryObj, Meta, StoryFn } from '@storybook/react';
+import React from 'react';
 
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { Button } from '../button/index.js'
-import { Box, Text } from '../index.js'
-import { Caption, CardTitle, H1, H2, H3, H4, H5, Header, SmallText } from './index.js'
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { Button } from '../button/index.js';
+import { Box, Text } from '../index.js';
+import { Caption, CardTitle, H1, H2, H3, H4, H5, Header, SmallText } from './index.js';
 
-const BoxWithPaddings = Box
+const BoxWithPaddings = Box;
 
 export const Headers: StoryFn = () => (
   <StoryWrapper label="Headers with paddings">
@@ -38,7 +38,7 @@ export const Headers: StoryFn = () => (
       </Text>
     </BoxWithPaddings>
   </StoryWrapper>
-)
+);
 
 export const TextExample: StoryObj = {
   render: (props) => (
@@ -53,7 +53,7 @@ export const TextExample: StoryObj = {
       </Text>
     </StoryWrapper>
   ),
-}
+};
 
 export const ContentExample: StoryFn = () => (
   <StoryWrapper label="Example styled content inside Text component">
@@ -111,7 +111,7 @@ export const ContentExample: StoryFn = () => (
       </Text>
     </Box>
   </StoryWrapper>
-)
+);
 
 export const Example: StoryFn = () => (
   <StoryWrapper label="Example content page">
@@ -226,7 +226,7 @@ export const Example: StoryFn = () => (
       </Text>
     </Box>
   </StoryWrapper>
-)
+);
 
 export const CaptionExample: StoryFn = () => (
   <StoryWrapper label="Captions">
@@ -243,7 +243,7 @@ export const CaptionExample: StoryFn = () => (
       Roboto 10 - line height - 12
     </Text>
   </StoryWrapper>
-)
+);
 
 const meta: Meta<typeof Text> = {
   title: 'DesignSystem/Atoms/Typography',
@@ -254,6 +254,6 @@ const meta: Meta<typeof Text> = {
   argTypes: {
     variant: { options: ['xs', 'sm', 'lg'], control: { type: 'select' } },
   },
-}
+};
 
-export default meta
+export default meta;

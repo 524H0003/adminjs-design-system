@@ -1,7 +1,7 @@
-import { styled } from '@styled-components'
+import { styled } from '@styled-components';
 
-import { Box, BoxProps } from '../../atoms/box/index.js'
-import { themeGet } from '../../utils/index.js'
+import { Box, BoxProps } from '../../atoms/box/index.js';
+import { themeGet } from '../../utils/index.js';
 
 export const StyledNavigation = styled(Box)<BoxProps>`
   ul ul > li {
@@ -12,6 +12,6 @@ export const StyledNavigation = styled(Box)<BoxProps>`
       margin-bottom: ${themeGet('space', 'lg')};
     }
   }
-`
+`;
 
-export default StyledNavigation
+export default StyledNavigation;

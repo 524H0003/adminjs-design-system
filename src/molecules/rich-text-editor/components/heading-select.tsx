@@ -1,22 +1,22 @@
-import { Editor } from '@tiptap/react'
-import React, { FC } from 'react'
+import { Editor } from '@tiptap/react';
+import React, { FC } from 'react';
 
-import MenuButton from './menu-button.jsx'
+import MenuButton from './menu-button.jsx';
 
-type Level = 1 | 2 | 3 | 4 | 5 | 6
+type Level = 1 | 2 | 3 | 4 | 5 | 6;
 
 interface HeadingSelectProps {
-  editor: Editor
+  editor: Editor;
 }
 
 const HeadingSelect: FC<HeadingSelectProps> = (props) => {
-  const { editor } = props
-  const headingLevels: Level[] = [1, 2, 3, 4, 5, 6]
+  const { editor } = props;
+  const headingLevels: Level[] = [1, 2, 3, 4, 5, 6];
 
   return (
     <>
       {headingLevels.map((level) => {
-        const name = `heading.${level}`
+        const name = `heading.${level}`;
         return (
           <MenuButton
             editor={editor}
@@ -25,9 +25,10 @@ const HeadingSelect: FC<HeadingSelectProps> = (props) => {
             onClick={() => editor.chain().focus().toggleHeading({ level }).run()}
             icon="FontSize"
             attributes={{ level }}
-          >{` ${level}`}
+          >
+            {` ${level}`}
           </MenuButton>
-        )
+        );
       })}
       <MenuButton
         editor={editor}
@@ -36,7 +37,7 @@ const HeadingSelect: FC<HeadingSelectProps> = (props) => {
         icon="Paragraph"
       />
     </>
-  )
-}
+  );
+};
 
-export default HeadingSelect
+export default HeadingSelect;

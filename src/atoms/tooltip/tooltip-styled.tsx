@@ -1,15 +1,16 @@
-import { styled, css } from '@styled-components'
+import { styled, css } from '@styled-components';
 
-import themeGet from '../../utils/theme-get.js'
-import { Box } from '../box/index.js'
-import { StyledTooltipProps } from './tooltip-props.js'
+import themeGet from '../../utils/theme-get.js';
+import { Box } from '../box/index.js';
+import { StyledTooltipProps } from './tooltip-props.js';
 
-const ARROW_WIDTH = 7
+const ARROW_WIDTH = 7;
 
 const topCSS = css<StyledTooltipProps>`
   margin-top: -${(props) => (props.isVisible ? themeGet('space', 'lg')(props) : '0px')};
 
-  &::after, &::before {
+  &::after,
+  &::before {
     top: 100%;
     left: 50%;
   }
@@ -23,12 +24,13 @@ const topCSS = css<StyledTooltipProps>`
     margin-left: -${ARROW_WIDTH - 1}px;
     border-color: ${themeGet('colors', 'highlight')} transparent transparent transparent;
   }
-`
+`;
 
 const bottomCSS = css<StyledTooltipProps>`
   margin-top: ${(props) => (props.isVisible ? themeGet('space', 'lg')(props) : '0px')};
 
-  &::after, &::before {
+  &::after,
+  &::before {
     bottom: 100%;
     left: 50%;
   }
@@ -42,12 +44,13 @@ const bottomCSS = css<StyledTooltipProps>`
     margin-left: -${ARROW_WIDTH - 1}px;
     border-color: transparent transparent ${themeGet('colors', 'highlight')} transparent;
   }
-`
+`;
 
 const leftCSS = css<StyledTooltipProps>`
   margin-left: -${(props) => (props.isVisible ? themeGet('space', 'lg')(props) : '0px')};
 
-  &::after, &::before {
+  &::after,
+  &::before {
     left: 100%;
     top: 50%;
   }
@@ -63,12 +66,13 @@ const leftCSS = css<StyledTooltipProps>`
     margin-top: -${ARROW_WIDTH - 1}px;
     border-color: transparent transparent transparent ${themeGet('colors', 'highlight')};
   }
-`
+`;
 
 const rightCSS = css<StyledTooltipProps>`
   margin-left: ${(props) => (props.isVisible ? themeGet('space', 'lg')(props) : '0px')};
 
-  &::after, &::before {
+  &::after,
+  &::before {
     right: 100%;
     top: 50%;
   }
@@ -84,13 +88,13 @@ const rightCSS = css<StyledTooltipProps>`
     margin-top: -${ARROW_WIDTH - 1}px;
     border-color: transparent ${themeGet('colors', 'highlight')} transparent transparent;
   }
-`
+`;
 
 const getPadding = (props: StyledTooltipProps): string => {
-  const px = (props.size === 'lg' ? 'xl' : 'md')
-  const py = (props.size === 'lg' ? 'lg' : 'sm')
-  return `${themeGet('space', py)(props)} ${themeGet('space', px)(props)}`
-}
+  const px = props.size === 'lg' ? 'xl' : 'md';
+  const py = props.size === 'lg' ? 'lg' : 'sm';
+  return `${themeGet('space', py)(props)} ${themeGet('space', px)(props)}`;
+};
 
 const StyledTooltip: any = styled(Box)<StyledTooltipProps>`
   transition: opacity 0.2s, margin 0.2s;
@@ -98,33 +102,34 @@ const StyledTooltip: any = styled(Box)<StyledTooltipProps>`
   position: absolute;
 
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
-  
+
   padding: ${(props) => getPadding(props)};
 
   pointer-events: none;
-  
+
   &::after {
-    content: " ";
+    content: ' ';
     position: absolute;
     border-style: solid;
     border-width: 7px;
     z-index: 1;
   }
   &::before {
-    content: " ";
+    content: ' ';
     position: absolute;
     border-style: solid;
     border-width: 6px;
     z-index: 2;
   }
 
-  ${(props) => ({
-    top: topCSS,
-    bottom: bottomCSS,
-    left: leftCSS,
-    right: rightCSS,
-  }[props.direction])}
-`
+  ${(props) =>
+    ({
+      top: topCSS,
+      bottom: bottomCSS,
+      left: leftCSS,
+      right: rightCSS,
+    }[props.direction])}
+`;
 
 StyledTooltip.defaultProps = {
   borderColor: 'grey20',
@@ -132,7 +137,7 @@ StyledTooltip.defaultProps = {
   borderWidth: '1px',
   bg: 'highlight',
   borderRadius: '3px',
-}
+};
 
-export default StyledTooltip
-export { StyledTooltip }
+export default StyledTooltip;
+export { StyledTooltip };

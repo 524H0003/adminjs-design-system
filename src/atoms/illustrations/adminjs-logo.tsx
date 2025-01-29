@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import { Props } from './props.type.js'
+import { Props } from './props.type.js';
 
 export const AdminJSLogo: React.FC<Props> = ({ width = 113, height = 113 }) => (
   <svg
@@ -11,7 +11,14 @@ export const AdminJSLogo: React.FC<Props> = ({ width = 113, height = 113 }) => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
     <defs>
-      <filter x="-18.8%" y="-13.4%" width="137.6%" height="137.6%" filterUnits="objectBoundingBox" id="a">
+      <filter
+        x="-18.8%"
+        y="-13.4%"
+        width="137.6%"
+        height="137.6%"
+        filterUnits="objectBoundingBox"
+        id="a"
+      >
         <feOffset dy="5" in="SourceAlpha" result="shadowOffsetOuter1" />
         <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1" />
         <feColorMatrix
@@ -32,6 +39,6 @@ export const AdminJSLogo: React.FC<Props> = ({ width = 113, height = 113 }) => (
       />
     </g>
   </svg>
-)
+);
 
-export default AdminJSLogo
+export default AdminJSLogo;

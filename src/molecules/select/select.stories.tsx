@@ -1,21 +1,21 @@
-import type { Meta, StoryFn } from '@storybook/react'
-import filter from 'lodash/filter.js'
-import React, { useState } from 'react'
-import { PublicBaseSelectProps } from 'react-select/base'
+import type { Meta, StoryFn } from '@storybook/react';
+import filter from 'lodash/filter.js';
+import React, { useState } from 'react';
+import { PublicBaseSelectProps } from 'react-select/base';
 
-import { Box, FormGroup } from '../../index.js'
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { Select, SelectAsync } from './index.js'
+import { Box, FormGroup } from '../../index.js';
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { Select, SelectAsync } from './index.js';
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
   { value: 'vanilla', label: 'Vanilla' },
-]
+];
 
 export const Default: StoryFn<PublicBaseSelectProps<any, boolean, any>> = (props) => {
-  const { isMulti } = props
-  const [value, setValue] = useState()
+  const { isMulti } = props;
+  const [value, setValue] = useState();
 
   return (
     <Box width={1}>
@@ -30,19 +30,19 @@ export const Default: StoryFn<PublicBaseSelectProps<any, boolean, any>> = (props
         </FormGroup>
       </StoryWrapper>
     </Box>
-  )
-}
+  );
+};
 
 export const Async: StoryFn = () => {
-  const [valueAsync, setValueAsync] = useState()
-  const [isLoading, setIsLoading] = useState(false)
+  const [valueAsync, setValueAsync] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const loadOptions = async (inputValue: string): Promise<any[]> => {
-    setIsLoading(true)
-    const found = filter(options, ({ value }) => value.includes(inputValue))
-    setIsLoading(false)
-    return Promise.resolve(found)
-  }
+    setIsLoading(true);
+    const found = filter(options, ({ value }) => value.includes(inputValue));
+    setIsLoading(false);
+    return Promise.resolve(found);
+  };
 
   return (
     <Box width={1}>
@@ -57,8 +57,8 @@ export const Async: StoryFn = () => {
         </FormGroup>
       </StoryWrapper>
     </Box>
-  )
-}
+  );
+};
 
 const meta: Meta<typeof Select> = {
   title: 'DesignSystem/Molecules/Select',
@@ -72,6 +72,6 @@ const meta: Meta<typeof Select> = {
     variant: { options: ['default', 'filter'], control: { type: 'select' } },
     isMulti: { control: { type: 'boolean' } },
   },
-}
+};
 
-export default meta
+export default meta;

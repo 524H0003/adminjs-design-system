@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import { Link } from './index.js'
+import { Link } from './index.js';
 
 enum LinkVariant {
   Primary = 'primary',
@@ -16,8 +16,8 @@ enum LinkSize {
   Lg = 'lg',
 }
 
-const variants = Object.values(LinkVariant)
-const sizes = Object.values(LinkSize)
+const variants = Object.values(LinkVariant);
+const sizes = Object.values(LinkSize);
 
 export const Default: StoryObj = {
   render: (props) => (
@@ -25,7 +25,7 @@ export const Default: StoryObj = {
       just a link
     </Link>
   ),
-}
+};
 
 const meta: Meta<typeof Link> = {
   title: 'DesignSystem/Atoms/Link',
@@ -40,6 +40,6 @@ const meta: Meta<typeof Link> = {
     variant: { options: variants, control: { type: 'select' } },
     size: { options: sizes, control: { type: 'select' } },
   },
-}
+};
 
-export default meta
+export default meta;

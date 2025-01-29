@@ -1,9 +1,9 @@
 /* eslint-disable import/prefer-default-export */
-import React from 'react'
-import { styled } from '@styled-components'
+import React from 'react';
+import { styled } from '@styled-components';
 
-import { Box } from '../box/index.js'
-import { cssClass } from '../../utils/css-class.js'
+import { Box } from '../box/index.js';
+import { cssClass } from '../../utils/css-class.js';
 
 const Spinner = styled.div.attrs({
   className: 'lds-facebook',
@@ -35,7 +35,9 @@ const Spinner = styled.div.attrs({
     animation-delay: 0;
   }
   @keyframes lds-facebook {
-    0%, 80%, 100% {
+    0%,
+    80%,
+    100% {
       top: 6px;
       height: 51px;
     }
@@ -44,8 +46,7 @@ const Spinner = styled.div.attrs({
       height: 26px;
     }
   }
-
-`
+`;
 
 /**
  * @classdesc
@@ -71,21 +72,16 @@ const Spinner = styled.div.attrs({
  * @section design-system
  */
 const Loader: React.FC = () => (
-  <Box
-    p="x3"
-    style={{ textAlign: 'center' }}
-    data-testid="Loader"
-    className={cssClass('Loader')}
-  >
+  <Box p="x3" style={{ textAlign: 'center' }} data-testid="Loader" className={cssClass('Loader')}>
     <Spinner>
       <div />
       <div />
       <div />
     </Spinner>
   </Box>
-)
+);
 
-Loader.displayName = 'Loader'
+Loader.displayName = 'Loader';
 
-export { Loader }
-export default Loader
+export { Loader };
+export default Loader;

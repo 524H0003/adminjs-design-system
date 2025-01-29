@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react'
-import { LayoutProps, layout } from 'styled-system'
-import { darken } from 'polished'
-import { styled, keyframes } from '@styled-components'
+import React from 'react';
+import { LayoutProps, layout } from 'styled-system';
+import { darken } from 'polished';
+import { styled, keyframes } from '@styled-components';
 
-import { cssClass } from '../../utils/css-class.js'
+import { cssClass } from '../../utils/css-class.js';
 
 const waveKeyframe = keyframes`
   0% {
@@ -16,7 +16,7 @@ const waveKeyframe = keyframes`
   100% {
     transform: translateX(100%);
   }
-`
+`;
 
 const StyledPlaceholder = styled.div<LayoutProps>`
   position: relative;
@@ -39,13 +39,13 @@ const StyledPlaceholder = styled.div<LayoutProps>`
     right: 0;
     top: 0;
   }
-  
+
   background: ${({ theme }) => theme.colors.border};
   background-size: 1000px 104px;
   height: 338px;
   border-radius: ${({ theme }) => theme.space.sm};
   ${layout};
-`
+`;
 
 /**
  * Prop Types of a Placeholder component.
@@ -57,9 +57,10 @@ const StyledPlaceholder = styled.div<LayoutProps>`
  *                          `id` etc.
  * @property {string} [...] Props from {@link LayoutProps}
  */
-export type PlaceholderProps = LayoutProps & React.HTMLProps<HTMLDivElement> & {
-  as?: 'div' | 'span';
-}
+export type PlaceholderProps = LayoutProps &
+  React.HTMLProps<HTMLDivElement> & {
+    as?: 'div' | 'span';
+  };
 
 /**
  * @classdesc
@@ -97,9 +98,9 @@ export type PlaceholderProps = LayoutProps & React.HTMLProps<HTMLDivElement> & {
  */
 const Placeholder: React.FC<PlaceholderProps> = ({ as: htmlAs, ref, ...other }) => (
   <StyledPlaceholder as={htmlAs} {...other} className={cssClass('Placeholder')} />
-)
+);
 
-Placeholder.displayName = 'Placeholder'
+Placeholder.displayName = 'Placeholder';
 
-export { Placeholder }
-export default Placeholder
+export { Placeholder };
+export default Placeholder;

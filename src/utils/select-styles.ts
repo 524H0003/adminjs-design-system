@@ -1,5 +1,5 @@
-import type { Props } from 'react-select'
-import type { DefaultTheme } from '@styled-components'
+import type { Props } from 'react-select';
+import type { DefaultTheme } from '@styled-components';
 
 const selectStyles = (theme: DefaultTheme): Props['styles'] => ({
   control: (baseStyles) => ({
@@ -8,14 +8,8 @@ const selectStyles = (theme: DefaultTheme): Props['styles'] => ({
     background: 'transparent',
     borderColor: theme.colors.inputBorder,
   }),
-  input: (baseStyles) => ({
-    ...baseStyles,
-    color: theme.colors.grey100,
-  }),
-  singleValue: (baseStyles) => ({
-    ...baseStyles,
-    color: theme.colors.grey100,
-  }),
+  input: (baseStyles) => ({ ...baseStyles, color: theme.colors.grey100 }),
+  singleValue: (baseStyles) => ({ ...baseStyles, color: theme.colors.grey100 }),
   menu: (baseStyles) => ({
     ...baseStyles,
     boxShadow: 'none',
@@ -23,7 +17,7 @@ const selectStyles = (theme: DefaultTheme): Props['styles'] => ({
     border: theme.borders.input,
     zIndex: 100,
   }),
-})
+});
 
 const filterStyles = (theme: DefaultTheme): Props['styles'] => ({
   control: (provided) => ({
@@ -37,16 +31,13 @@ const filterStyles = (theme: DefaultTheme): Props['styles'] => ({
     gridArea: '1/1/2/3',
     gridTemplateColumns: '0px min-content',
   }),
-  singleValue: () => ({
-    color: theme.colors.grey100,
-    gridArea: '1/1/2/3',
-  }),
+  singleValue: () => ({ color: theme.colors.grey100, gridArea: '1/1/2/3' }),
   menu: (provided) => ({
     ...provided,
     borderColor: theme.colors.border,
     background: theme.colors.filterBg,
     zIndex: 5,
   }),
-})
+});
 
-export { filterStyles, selectStyles }
+export { filterStyles, selectStyles };

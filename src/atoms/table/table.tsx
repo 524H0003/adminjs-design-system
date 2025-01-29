@@ -1,7 +1,7 @@
-import { layout, LayoutProps } from 'styled-system'
-import { styled } from '@styled-components'
+import { layout, LayoutProps } from 'styled-system';
+import { styled } from '@styled-components';
 
-import { cssClass } from '../../utils/css-class.js'
+import { cssClass } from '../../utils/css-class.js';
 
 /**
  * @classdesc
@@ -98,13 +98,13 @@ const Table = styled.table<LayoutProps>`
   border-right: 1px solid ${({ theme }) => theme.colors.border};
 
   ${layout};
-`
+`;
 
-Table.displayName = 'Table'
+Table.displayName = 'Table';
 
 Table.defaultProps = {
   width: 1,
   className: cssClass('Table'),
-}
+};
 
-export default Table
+export default Table;

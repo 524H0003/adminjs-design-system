@@ -1,8 +1,8 @@
-import { LayoutProps, SpaceProps, color, layout, space } from 'styled-system'
-import { styled } from '@styled-components'
+import { LayoutProps, SpaceProps, color, layout, space } from 'styled-system';
+import { styled } from '@styled-components';
 
-import { NewColorProps as ColorProps } from '../../utils/color-props.js'
-import { cssClass } from '../../utils/css-class.js'
+import { NewColorProps as ColorProps } from '../../utils/color-props.js';
+import { cssClass } from '../../utils/css-class.js';
 
 /**
  * @component
@@ -15,21 +15,21 @@ const TableCell = styled.td<SpaceProps | ColorProps | LayoutProps>`
   line-height: ${({ theme }) => theme.lineHeights.default};
   word-break: break-word;
   vertical-align: middle;
-  ${color}; 
+  ${color};
   ${space};
   ${layout};
 
   &.options {
     text-align: right;
   }
-`
+`;
 
 TableCell.defaultProps = {
   p: 'lg',
   color: 'text',
   className: cssClass('TableCell'),
-}
+};
 
-TableCell.displayName = 'TableCell'
+TableCell.displayName = 'TableCell';
 
-export default TableCell
+export default TableCell;

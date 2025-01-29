@@ -1,8 +1,8 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import { Box, Label } from '../index.js'
-import { CheckBox } from './index.js'
+import { Box, Label } from '../index.js';
+import { CheckBox } from './index.js';
 
 export const Default: StoryObj = {
   render: (props) => (
@@ -13,7 +13,7 @@ export const Default: StoryObj = {
       </Label>
     </Box>
   ),
-}
+};
 
 export const AllStates: StoryFn = () => (
   <Box flex>
@@ -36,11 +36,11 @@ export const AllStates: StoryFn = () => (
       </Label>
     </Box>
   </Box>
-)
+);
 
 const meta: Meta<typeof CheckBox> = {
   title: 'DesignSystem/Atoms/CheckBox',
   component: CheckBox,
-}
+};
 
-export default meta
+export default meta;

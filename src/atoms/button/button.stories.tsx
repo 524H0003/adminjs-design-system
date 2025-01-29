@@ -1,17 +1,17 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { Box, Icon, Label } from '../index.js'
-import { Button, ButtonProps } from './index.js'
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { Box, Icon, Label } from '../index.js';
+import { Button, ButtonProps } from './index.js';
 
-const ButtonVariant: ButtonProps['variant'][] = ['text', 'outlined', 'contained', 'light']
-const ButtonSize: ButtonProps['size'][] = ['default', 'sm', 'lg', 'icon']
-const ButtonColor: ButtonProps['color'][] = ['primary', 'secondary', 'danger', 'success', 'info']
+const ButtonVariant: ButtonProps['variant'][] = ['text', 'outlined', 'contained', 'light'];
+const ButtonSize: ButtonProps['size'][] = ['default', 'sm', 'lg', 'icon'];
+const ButtonColor: ButtonProps['color'][] = ['primary', 'secondary', 'danger', 'success', 'info'];
 
 export const Default: StoryObj = {
   render: (args) => <Button {...args}>Example button</Button>,
-}
+};
 
 export const Examples: StoryFn = () => (
   <Box width={1}>
@@ -85,7 +85,7 @@ export const Examples: StoryFn = () => (
       ))}
     </StoryWrapper>
   </Box>
-)
+);
 
 const meta: Meta<typeof Button> = {
   title: 'DesignSystem/Atoms/Button',
@@ -108,6 +108,6 @@ const meta: Meta<typeof Button> = {
     size: { options: ButtonSize, control: { type: 'select' } },
     color: { options: ButtonColor, control: { type: 'select' } },
   },
-}
+};
 
-export default meta
+export default meta;

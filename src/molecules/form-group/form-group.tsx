@@ -1,16 +1,16 @@
-import { SpaceProps, space } from 'styled-system'
-import { styled, css } from '@styled-components'
+import { SpaceProps, space } from 'styled-system';
+import { styled, css } from '@styled-components';
 
-import { Label } from '../../atoms/label/index.js'
-import { Button } from '../../atoms/button/index.js'
-import { Input } from '../../atoms/input/index.js'
-import { CurrencyInput } from '../../atoms/currency-input/index.js'
-import { Link } from '../../atoms/link/index.js'
-import InputGroup from './input-group.jsx'
+import { Label } from '../../atoms/label/index.js';
+import { Button } from '../../atoms/button/index.js';
+import { Input } from '../../atoms/input/index.js';
+import { CurrencyInput } from '../../atoms/currency-input/index.js';
+import { Link } from '../../atoms/link/index.js';
+import InputGroup from './input-group.jsx';
 
 const formGroupDisabledCSS = css`
   color: ${({ theme }) => theme.colors.grey40};
-`
+`;
 
 const formGroupWithErrorCSS = css`
   color: ${({ theme }) => theme.colors.error};
@@ -27,7 +27,7 @@ const formGroupWithErrorCSS = css`
   &&& ${Label}, &&& ${Button}, &&& ${Link} {
     border-color: ${({ theme }) => theme.colors.error};
   }
-`
+`;
 
 /**
  * Props for FormGroup. Apart from props defined here FormGroup supports also all {@link SpaceProps}
@@ -47,7 +47,7 @@ export type FormGroupProps = SpaceProps & {
    * if given form group should be rendered in a filter
    */
   variant?: 'filter';
-}
+};
 
 /**
  * @classdesc
@@ -144,27 +144,30 @@ export const FormGroup = styled.div<FormGroupProps>`
   }
 
   & ${Input}, & ${CurrencyInput} {
-    ${({ variant, theme }): string => (variant === 'filter' ? `border-color: ${theme.colors.inputBorder}` : '')};
+    ${({ variant, theme }): string =>
+      variant === 'filter' ? `border-color: ${theme.colors.inputBorder}` : ''};
     ${({ variant, theme }): string => (variant === 'filter' ? `color: ${theme.colors.text}` : '')};
   }
 
   & ${InputGroup} {
     ${Label}, ${Button}:last-child, ${Link}:last-child {
-      ${({ variant, theme }): string => (variant === 'filter' ? `border-color: ${theme.colors.inputBorder}` : '')};
+      ${({ variant, theme }): string =>
+        variant === 'filter' ? `border-color: ${theme.colors.inputBorder}` : ''};
     }
   }
 
-  & [class*="DatePicker"] > .react-datepicker-wrapper {
-    ${({ variant, theme }): string => (variant === 'filter' ? `border-color: ${theme.colors.inputBorder}` : '')};
+  & [class*='DatePicker'] > .react-datepicker-wrapper {
+    ${({ variant, theme }): string =>
+      variant === 'filter' ? `border-color: ${theme.colors.inputBorder}` : ''};
   }
-  & [class*="DatePicker"] > .react-datepicker-wrapper input {
+  & [class*='DatePicker'] > .react-datepicker-wrapper input {
     ${({ variant, theme }): string => (variant === 'filter' ? `color: ${theme.colors.text}` : '')};
   }
-`
+`;
 
 FormGroup.defaultProps = {
   mb: 'lg',
-}
-FormGroup.displayName = 'FormGroup'
+};
+FormGroup.displayName = 'FormGroup';
 
-export default FormGroup
+export default FormGroup;

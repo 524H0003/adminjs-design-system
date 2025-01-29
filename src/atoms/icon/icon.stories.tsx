@@ -1,13 +1,13 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/react'
-import React from 'react'
-import * as FeatherIcons from 'react-feather'
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
+import * as FeatherIcons from 'react-feather';
 
-import { Box, Label } from '../index.js'
-import { Icon } from './icon.js'
+import { Box, Label } from '../index.js';
+import { Icon } from './icon.js';
 
-const icons = Object.keys(FeatherIcons).filter((name) => name !== 'default')
+const icons = Object.keys(FeatherIcons).filter((name) => name !== 'default');
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {};
 
 export const Icons: StoryFn = () => (
   <Box display="grid" style={{ gridTemplateColumns: 'repeat(10, 1fr)', gap: 16 }}>
@@ -18,7 +18,7 @@ export const Icons: StoryFn = () => (
       </Box>
     ))}
   </Box>
-)
+);
 
 const meta: Meta<typeof Icon> = {
   title: 'DesignSystem/Atoms/Icon',
@@ -41,6 +41,6 @@ const meta: Meta<typeof Icon> = {
     rounded: { control: { type: 'boolean' } },
     spin: { control: { type: 'boolean' } },
   },
-}
+};
 
-export default meta
+export default meta;

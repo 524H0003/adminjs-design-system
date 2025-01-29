@@ -7,12 +7,12 @@ import {
   color,
   layout,
   LayoutProps,
-} from 'styled-system'
-import { styled } from '@styled-components'
+} from 'styled-system';
+import { styled } from '@styled-components';
 
-import contentCSS from '../../utils/content-styles.js'
-import { cssClass } from '../../utils/css-class.js'
-import { NewColorProps as ColorProps } from '../../utils/color-props.js'
+import contentCSS from '../../utils/content-styles.js';
+import { cssClass } from '../../utils/css-class.js';
+import { NewColorProps as ColorProps } from '../../utils/color-props.js';
 
 const variants = variant({
   variants: {
@@ -26,7 +26,7 @@ const variants = variant({
       fontSize: 'lg',
     },
   },
-})
+});
 
 /**
  * Prop Types of a Text component.
@@ -38,12 +38,15 @@ const variants = variant({
  * @property {string} [...] Other props from {@link ColorProps}, {@link SpaceProps}
  *                          and {@link TypographyProps}
  */
-export type TextProps = TypographyProps & SpaceProps & ColorProps & LayoutProps & {
-  /** Optional variant of a <Text /> component */
-  variant?: 'xs' | 'sm' | 'lg';
-  /** Define this if you want to render element as something other than div */
-  as?: string;
-}
+export type TextProps = TypographyProps &
+  SpaceProps &
+  ColorProps &
+  LayoutProps & {
+    /** Optional variant of a <Text /> component */
+    variant?: 'xs' | 'sm' | 'lg';
+    /** Define this if you want to render element as something other than div */
+    as?: string;
+  };
 
 /**
  * @classdesc
@@ -86,13 +89,13 @@ const Text = styled.div<TextProps>`
   ${layout};
   ${color};
   ${variants};
-`
+`;
 
 Text.defaultProps = {
   className: cssClass('Text'),
-}
+};
 
-Text.displayName = 'Text'
+Text.displayName = 'Text';
 
-export { Text }
-export default Text
+export { Text };
+export default Text;

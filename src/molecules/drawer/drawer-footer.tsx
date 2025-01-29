@@ -1,5 +1,5 @@
-import { space, SpaceProps } from 'styled-system'
-import { styled } from '@styled-components'
+import { space, SpaceProps } from 'styled-system';
+import { styled } from '@styled-components';
 
 /**
  * @component
@@ -12,8 +12,8 @@ export const DrawerFooter = styled.section<SpaceProps>`
   text-align: center;
   flex-shrink: 0;
   ${space};
-`
+`;
 
-DrawerFooter.displayName = 'DrawerFooter'
+DrawerFooter.displayName = 'DrawerFooter';
 
-export default DrawerFooter
+export default DrawerFooter;

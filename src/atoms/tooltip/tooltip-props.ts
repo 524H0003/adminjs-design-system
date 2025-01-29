@@ -1,7 +1,7 @@
-import { ReactNode, RefObject } from 'react'
+import { ReactNode, RefObject } from 'react';
 
-import { DirectionProps } from '../../utils/direction-props.js'
-import { BoxProps } from '../box/index.js'
+import { DirectionProps } from '../../utils/direction-props.js';
+import { BoxProps } from '../box/index.js';
 
 /**
  * Props passed to the {@link Tooltip} component.
@@ -10,21 +10,19 @@ import { BoxProps } from '../box/index.js'
  * @alias TooltipProps
  */
 export type TooltipProps = {
-  /** Text shown on the tooltip */
-  title?: string,
+  /** Text shown on the tooltip */ title?: string;
   /** Direction of tooltip */
-  direction: DirectionProps,
+  direction: DirectionProps;
   /** Tooltip size */
-  size?: 'default' | 'lg'
-}
+  size?: 'default' | 'lg';
+};
 
 export type PortalProps = TooltipProps & {
-  childRef: RefObject<HTMLElement>,
-  ContentElement?: ReactNode,
-}
+  childRef: RefObject<HTMLElement>;
+  ContentElement?: ReactNode;
+};
 
-export type StyledTooltipProps = BoxProps & Pick<TooltipProps, 'direction'> & {
-  isVisible: boolean;
-}
+export type StyledTooltipProps = BoxProps &
+  Pick<TooltipProps, 'direction'> & { isVisible: boolean };
 
-export default TooltipProps
+export default TooltipProps;

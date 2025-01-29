@@ -10,8 +10,7 @@
  * ```javascript
  * import { cssClass } from '@adminjs/design-system'
  *
- * cssClass('Icon', 'my-regular-class-name')
- * // returns: 'adminjs_Icon my-regular-class-name'
+ * cssClass('Icon', 'my-regular-class-name') * // returns: 'adminjs_Icon my-regular-class-name'
  * ```
  *
  *
@@ -20,18 +19,18 @@
  * @memberof module:@adminjs/design-system
  */
 export const cssClass = (className: string | Array<string>, regularClass?: string): string => {
-  let names: Array<string> = []
+  let names: Array<string> = [];
   if ((className as any).join) {
-    names = className as Array<string>
+    names = className as Array<string>;
   } else {
-    names = [className as string]
+    names = [className as string];
   }
-  const parsed = names.map((name) => `adminjs_${name}`)
+  const parsed = names.map((name) => `adminjs_${name}`);
   if (regularClass) {
-    parsed.push(regularClass)
+    parsed.push(regularClass);
   }
 
-  return parsed.join(' ')
-}
+  return parsed.join(' ');
+};
 
-export default cssClass
+export default cssClass;

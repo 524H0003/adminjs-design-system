@@ -1,4 +1,4 @@
-type PropertyType = 'date' | 'datetime' | string
+type PropertyType = 'date' | 'datetime' | string;
 
 /**
  * adds leading 0 to the number when it is lower than 10
@@ -6,7 +6,7 @@ type PropertyType = 'date' | 'datetime' | string
  * @returns {sting}           formatted number: i.e. "08"
  * @memberof module:@adminjs/design-system
  */
-const pad = (n: number): string => (n < 10 ? `0${n.toString()}` : n.toString())
+const pad = (n: number): string => (n < 10 ? `0${n.toString()}` : n.toString());
 
 /**
  * Formats date to YYYY-MM-DD
@@ -15,8 +15,8 @@ const pad = (n: number): string => (n < 10 ? `0${n.toString()}` : n.toString())
  * @return  {string}
  * @memberof module:@adminjs/design-system
  */
-const formatDate = (date: Date): string => `${date.getFullYear()}-${pad(date.getMonth() + 1)
-}-${pad(date.getDate())}`
+const formatDate = (date: Date): string =>
+  `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 
 /**
  * Formats date to HH:mm
@@ -25,7 +25,7 @@ const formatDate = (date: Date): string => `${date.getFullYear()}-${pad(date.get
  * @return  {string}
  * @memberof module:@adminjs/design-system
  */
-const formatTime = (date: Date): string => `${pad(date.getHours())}:${pad(date.getMinutes())}`
+const formatTime = (date: Date): string => `${pad(date.getHours())}:${pad(date.getMinutes())}`;
 
 /**
  * Formats date to YYYY-MM-DD HH:mm
@@ -34,7 +34,7 @@ const formatTime = (date: Date): string => `${pad(date.getHours())}:${pad(date.g
  * @return  {string}
  * @memberof module:@adminjs/design-system
  */
-const formatDateTime = (date: Date): string => `${formatDate(date)} ${formatTime(date)}`
+const formatDateTime = (date: Date): string => `${formatDate(date)} ${formatTime(date)}`;
 
 /**
  * Based on the property type formats date to either YYYY-MM-DD HH:mm or YYYY-MM-DD
@@ -46,15 +46,9 @@ const formatDateTime = (date: Date): string => `${formatDate(date)} ${formatTime
  */
 const formatDateProperty = (date: Date, propertyType?: PropertyType): string => {
   if (propertyType === 'date') {
-    return formatDate(date)
+    return formatDate(date);
   }
-  return formatDateTime(date)
-}
+  return formatDateTime(date);
+};
 
-export {
-  formatDateProperty,
-  formatDate,
-  formatDateTime,
-  pad,
-  PropertyType,
-}
+export { formatDateProperty, formatDate, formatDateTime, pad, PropertyType };

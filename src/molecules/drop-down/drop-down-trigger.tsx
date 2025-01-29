@@ -1,4 +1,4 @@
-import { styled } from '@styled-components'
+import { styled } from '@styled-components';
 
 /**
  * @component
@@ -6,7 +6,7 @@ import { styled } from '@styled-components'
  */
 export const DropDownTrigger = styled.span`
   display: inline-block;
-`
-DropDownTrigger.displayName = 'DropDownTrigger'
+`;
+DropDownTrigger.displayName = 'DropDownTrigger';
 
-export default DropDownTrigger
+export default DropDownTrigger;

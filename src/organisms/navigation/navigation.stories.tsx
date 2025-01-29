@@ -1,19 +1,19 @@
-import { Meta, StoryObj } from '@storybook/react'
-import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
 
-import { Box, Label } from '../../index.js'
-import { Navigation } from './index.js'
-import { NavigationProps } from './navigation-props.js'
+import { Box, Label } from '../../index.js';
+import { Navigation } from './index.js';
+import { NavigationProps } from './navigation-props.js';
 
 export const Default: StoryObj<NavigationProps & { onClick: (e) => void }> = {
   render: ({ onClick, label }) => {
-    const [postgresOpen, setPostgresOpen] = useState(false)
-    const [mongooseOpen, setMongooseOpen] = useState(false)
+    const [postgresOpen, setPostgresOpen] = useState(false);
+    const [mongooseOpen, setMongooseOpen] = useState(false);
 
     const handleClick = (event) => {
-      event.preventDefault()
-      onClick(event)
-    }
+      event.preventDefault();
+      onClick(event);
+    };
 
     const props: NavigationProps = {
       label: 'Navigation',
@@ -30,8 +30,8 @@ export const Default: StoryObj<NavigationProps & { onClick: (e) => void }> = {
           label: 'Postgres with long name and spaces',
           icon: 'Database',
           onClick: (event) => {
-            event.preventDefault()
-            setPostgresOpen(!postgresOpen)
+            event.preventDefault();
+            setPostgresOpen(!postgresOpen);
           },
           isOpen: postgresOpen,
           elements: [
@@ -66,8 +66,8 @@ export const Default: StoryObj<NavigationProps & { onClick: (e) => void }> = {
           icon: 'Database',
           isOpen: mongooseOpen,
           onClick: (event) => {
-            event.preventDefault()
-            setMongooseOpen(!mongooseOpen)
+            event.preventDefault();
+            setMongooseOpen(!mongooseOpen);
           },
           elements: [
             {
@@ -97,7 +97,7 @@ export const Default: StoryObj<NavigationProps & { onClick: (e) => void }> = {
           ],
         },
       ],
-    }
+    };
 
     return (
       <Box variant="grey">
@@ -106,9 +106,9 @@ export const Default: StoryObj<NavigationProps & { onClick: (e) => void }> = {
           <Navigation {...props} label={label} />
         </Box>
       </Box>
-    )
+    );
   },
-}
+};
 
 const meta: Meta<typeof Navigation> = {
   title: 'DesignSystem/Organisms/Navigation',
@@ -119,6 +119,6 @@ const meta: Meta<typeof Navigation> = {
   argTypes: {
     label: { control: { type: 'text' } },
   },
-}
+};
 
-export default meta
+export default meta;

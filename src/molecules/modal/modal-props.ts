@@ -1,6 +1,6 @@
-import type { ButtonProps } from '../../atoms/button/index.js'
-import type { IconProps } from '../../atoms/icon/index.js'
-import { VariantType } from '../../theme.js'
+import type { ButtonProps } from '../../atoms/button/index.js';
+import type { IconProps } from '../../atoms/icon/index.js';
+import { VariantType } from '../../theme.js';
 
 /**
  * Props passed to Modal Component
@@ -12,32 +12,32 @@ export type ModalProps = {
   /**
    * dialog title
    */
-  title?: string
+  title?: string;
   /**
    * optional subtitle
    */
-  subTitle?: string
+  subTitle?: string;
   /**
    * color variant
    */
-  variant?: VariantType
+  variant?: VariantType;
 
   /** Modal footer buttons */
-  buttons?: Array<ButtonProps>
+  buttons?: Array<ButtonProps>;
 
   /** Label which is seen above the text */
-  label?: string
+  label?: string;
 
   /** Icon near the label */
-  icon?: IconProps['icon']
+  icon?: IconProps['icon'];
 
   /** Handler function triggered when overlay is clicked */
-  onOverlayClick?: () => any
+  onOverlayClick?: () => any;
 
   /**
    * Function triggered when user clicks close button.
    * If it is given - close button will appear.
    */
-  onClose?: () => any
-  children?: React.ReactNode
-}
+  onClose?: () => any;
+  children?: React.ReactNode;
+};

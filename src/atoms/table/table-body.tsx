@@ -1,19 +1,17 @@
-import { styled } from '@styled-components'
+import { styled } from '@styled-components';
 
-import { cssClass } from '../../utils/css-class.js'
+import { cssClass } from '../../utils/css-class.js';
 
 /**
  * @component
  * @private
  */
-const TableBody = styled.tbody`
-
-`
+const TableBody = styled.tbody``;
 
 TableBody.defaultProps = {
   className: cssClass('TableBody'),
-}
+};
 
-TableBody.displayName = 'TableBody'
+TableBody.displayName = 'TableBody';
 
-export default TableBody
+export default TableBody;

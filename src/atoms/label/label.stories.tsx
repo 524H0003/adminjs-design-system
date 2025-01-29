@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-closing-tag-location */
-import { Meta, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { Box } from '../index.js'
-import { Label } from './index.js'
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { Box } from '../index.js';
+import { Label } from './index.js';
 
-const variants = ['primary', 'danger', 'success', 'info', 'secondary'] as const
+const variants = ['primary', 'danger', 'success', 'info', 'secondary'] as const;
 
 export const Default: StoryObj = {
   render: (args) => (
@@ -16,7 +16,7 @@ export const Default: StoryObj = {
       </StoryWrapper>
     </Box>
   ),
-}
+};
 
 const meta: Meta<typeof Label> = {
   title: 'DesignSystem/Atoms/Label',
@@ -37,6 +37,6 @@ const meta: Meta<typeof Label> = {
     variant: { options: variants, control: { type: 'select' } },
     size: { options: ['default', 'lg'], control: { type: 'select' } },
   },
-}
+};
 
-export default meta
+export default meta;

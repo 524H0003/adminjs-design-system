@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react';
 
-import MadeWithLove from './made-with-love.jsx'
+import MadeWithLove from './made-with-love.jsx';
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {};
 
 const meta: Meta<typeof MadeWithLove> = {
   title: 'DesignSystem/Organisms/MadeWithLove',
   component: MadeWithLove,
-}
+};
 
-export default meta
+export default meta;

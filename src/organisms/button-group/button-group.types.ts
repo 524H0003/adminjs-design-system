@@ -1,6 +1,6 @@
-import type { ButtonProps } from '../../atoms/button/index.js'
-import type { IconProps } from '../../atoms/icon/index.js'
-import type { VariantType } from '../../theme.js'
+import type { ButtonProps } from '../../atoms/button/index.js';
+import type { IconProps } from '../../atoms/icon/index.js';
+import type { VariantType } from '../../theme.js';
 
 /**
  * Props of buttons in {@link ButtonGroup}
@@ -8,8 +8,7 @@ import type { VariantType } from '../../theme.js'
  * @memberof ButtonGroup
  */
 export type ButtonInGroupProps = Omit<ButtonProps, 'onClick'> & {
-  /** Icon of a button */
-  icon?: IconProps['icon'];
+  /** Icon of a button */ icon?: IconProps['icon'];
   /** Label, when set to null, with icon given, button will adjust it's margin */
   label?: string | null;
   /** Variant compatible with Button variant */
@@ -28,17 +27,15 @@ export type ButtonInGroupProps = Omit<ButtonProps, 'onClick'> & {
   /**
    * Array of nested buttons.
    */
-  buttons?: Array<ButtonInGroupProps>
+  buttons?: Array<ButtonInGroupProps>;
   /**
    * CSS Selector
    */
   'data-css'?: string;
-} & {
-  className?: string
-}
+} & { className?: string };
 
-type ButtonPropsSize = ButtonProps['size']
-type ButtonPropsRounded = ButtonProps['rounded']
+type ButtonPropsSize = ButtonProps['size'];
+type ButtonPropsRounded = ButtonProps['rounded'];
 
 /**
  * Props passed to ButtonGroup element.
@@ -49,7 +46,7 @@ export type ButtonGroupProps = {
   /**
    * Default size for all buttons. The same as {@link ButtonProps}.size
    */
-  size?: ButtonPropsSize,
+  size?: ButtonPropsSize;
   /**
    * Default rounded property for all buttons. The same as {@link ButtonProps}.rounded
    */
@@ -57,5 +54,5 @@ export type ButtonGroupProps = {
   /**
    * Array of top level buttons.
    */
-  buttons: Array<ButtonInGroupProps>,
-}
+  buttons: Array<ButtonInGroupProps>;
+};

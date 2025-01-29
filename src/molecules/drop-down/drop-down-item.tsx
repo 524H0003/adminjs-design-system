@@ -1,12 +1,12 @@
-import { rgba } from 'polished'
-import type { PropsWithChildren } from 'react'
-import { styled } from '@styled-components'
-import { space, variant } from 'styled-system'
+import { rgba } from 'polished';
+import type { PropsWithChildren } from 'react';
+import { styled } from '@styled-components';
+import { space, variant } from 'styled-system';
 
-import { Box, BoxProps } from '../../atoms/box/index.js'
-import type { VariantType } from '../../theme.js'
-import { cssClass } from '../../utils/index.js'
-import DropDownMenu from './drop-down-menu.jsx'
+import { Box, BoxProps } from '../../atoms/box/index.js';
+import type { VariantType } from '../../theme.js';
+import { cssClass } from '../../utils/index.js';
+import DropDownMenu from './drop-down-menu.jsx';
 
 const variantsShared = (theme, color) => ({
   color,
@@ -16,7 +16,7 @@ const variantsShared = (theme, color) => ({
   '&:hover': {
     bg: rgba(theme.colors[color], 0.03),
   },
-})
+});
 
 const colorVariants = variant<any, VariantType>({
   prop: 'colorVariant',
@@ -29,7 +29,7 @@ const colorVariants = variant<any, VariantType>({
     light: (theme) => variantsShared(theme, 'grey80'),
     default: (theme) => variantsShared(theme, 'text'),
   },
-})
+});
 
 /**
  * Props passed to DropDownItem
@@ -40,9 +40,9 @@ const colorVariants = variant<any, VariantType>({
  */
 export type DropDownItemProps = PropsWithChildren &
   BoxProps & {
-    colorVariant?: VariantType
-    onClick?: (e: Event) => void
-  }
+    colorVariant?: VariantType;
+    onClick?: (e: Event) => void;
+  };
 
 /**
  * @component
@@ -88,8 +88,8 @@ export const DropDownItem = styled(Box)<DropDownItemProps>`
 
   ${space};
   ${colorVariants};
-`
+`;
 
-DropDownItem.displayName = 'DropDownItem'
+DropDownItem.displayName = 'DropDownItem';
 
-export default DropDownItem
+export default DropDownItem;

@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react';
 import {
   space,
   SpaceProps,
@@ -17,13 +17,13 @@ import {
   ShadowProps,
   BorderRadiusProps,
   borderRadius,
-} from 'styled-system'
-import { styled } from '@styled-components'
+} from 'styled-system';
+import { styled } from '@styled-components';
 
-import { NewColorProps as ColorProps } from '../../utils/color-props.js'
-import { cssClass } from '../../utils/css-class.js'
+import { NewColorProps as ColorProps } from '../../utils/color-props.js';
+import { cssClass } from '../../utils/css-class.js';
 
-type FlexboxFlexProp = boolean | FlexboxProps['flex']
+type FlexboxFlexProp = boolean | FlexboxProps['flex'];
 
 /**
  * @load ./box-props.doc.md
@@ -43,14 +43,14 @@ export type BoxProps = PropsWithChildren &
   ShadowProps &
   SpaceProps & {
     /** If box should be rendered as flex. You can pass boolean or FlexboxProps['flex'] */
-    flex?: FlexboxFlexProp
+    flex?: FlexboxFlexProp;
     /** Box variants */
-    variant?: 'grey' | 'white' | 'card' | 'transparent' | 'container'
+    variant?: 'grey' | 'white' | 'card' | 'transparent' | 'container';
     /** If set to true it makes css changes as 500ms transitions */
-    animate?: boolean
+    animate?: boolean;
     /** Optional class name passed down to the wrapper */
-    className?: string
-  }
+    className?: string;
+  };
 
 const variants = variant<BoxProps>({
   variants: {
@@ -88,7 +88,7 @@ const variants = variant<BoxProps>({
       className: cssClass(['Box', 'Box_Transparent']),
     },
   },
-})
+});
 
 /**
  * @load ./box.doc.md
@@ -119,13 +119,13 @@ const Box = styled.section<BoxProps>`
   ${shadow};
   ${position};
   ${variants};
-`
+`;
 
 Box.defaultProps = {
   className: cssClass('Box'),
-}
+};
 
-Box.displayName = 'Box'
+Box.displayName = 'Box';
 
-export { Box }
-export default Box
+export { Box };
+export default Box;

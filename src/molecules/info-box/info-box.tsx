@@ -1,11 +1,11 @@
-import React from 'react'
-import { styled } from '@styled-components'
+import React from 'react';
+import { styled } from '@styled-components';
 
-import { Illustration, IllustrationVariant } from '../../atoms/illustration/index.js'
-import { Box, BoxProps } from '../../atoms/box/index.js'
-import { H4 } from '../../atoms/typography/index.js'
+import { Illustration, IllustrationVariant } from '../../atoms/illustration/index.js';
+import { Box, BoxProps } from '../../atoms/box/index.js';
+import { H4 } from '../../atoms/typography/index.js';
 
-import { cssClass } from '../../utils/css-class.js'
+import { cssClass } from '../../utils/css-class.js';
 
 const StyledInfoBox = styled(Box)<BoxProps>`
   display: flex;
@@ -14,7 +14,7 @@ const StyledInfoBox = styled(Box)<BoxProps>`
   justify-content: center;
   flex-direction: column;
   text-align: center;
-`
+`;
 
 /**
  * @memberof InfoBox
@@ -30,7 +30,7 @@ export type InfoBoxProps = {
   /** Optional testId */
   testId?: string;
   variant?: BoxProps['variant'];
-}
+};
 
 /**
  * @classdesc
@@ -64,15 +64,25 @@ export type InfoBoxProps = {
  * )
  * @section design-system
  */
-const InfoBox: React.FC<InfoBoxProps> = ({ children, title, illustration, variant = 'transparent', testId }) => (
+const InfoBox: React.FC<InfoBoxProps> = ({
+  children,
+  title,
+  illustration,
+  variant = 'transparent',
+  testId,
+}) => (
   <StyledInfoBox data-testid={testId} variant={variant} className={cssClass('InfoBox')}>
-    {illustration && typeof illustration === 'string' ? <Illustration variant={illustration} /> : illustration}
+    {illustration && typeof illustration === 'string' ? (
+      <Illustration variant={illustration} />
+    ) : (
+      illustration
+    )}
     {title && <H4 mb="lg">{title}</H4>}
     {children}
   </StyledInfoBox>
-)
+);
 
-InfoBox.displayName = 'InfoBox'
+InfoBox.displayName = 'InfoBox';
 
-export { InfoBox }
-export default InfoBox
+export { InfoBox };
+export default InfoBox;

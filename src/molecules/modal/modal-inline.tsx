@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import { Box, BoxProps } from '../../atoms/box/index.js'
-import { Button } from '../../atoms/button/index.js'
-import { Icon } from '../../atoms/icon/index.js'
-import { Label } from '../../atoms/label/index.js'
-import { Text } from '../../atoms/text/index.js'
-import { H5 } from '../../atoms/typography/index.js'
-import { ModalProps } from './modal-props.js'
-import { ModalStyled } from './modal-styled.jsx'
+import { Box, BoxProps } from '../../atoms/box/index.js';
+import { Button } from '../../atoms/button/index.js';
+import { Icon } from '../../atoms/icon/index.js';
+import { Label } from '../../atoms/label/index.js';
+import { Text } from '../../atoms/text/index.js';
+import { H5 } from '../../atoms/typography/index.js';
+import { ModalProps } from './modal-props.js';
+import { ModalStyled } from './modal-styled.jsx';
 
 /**
  * Modal which can be rendered inline instead of a "modal"
@@ -19,7 +19,7 @@ import { ModalStyled } from './modal-styled.jsx'
  * @section design-system
  */
 export const ModalInline: React.FC<ModalProps & Omit<BoxProps, 'variant'>> = (props) => {
-  const { title, subTitle, variant, onClose, children, buttons, label, icon, ...boxProps } = props
+  const { title, subTitle, variant, onClose, children, buttons, label, icon, ...boxProps } = props;
   return (
     <ModalStyled variant={variant as BoxProps['variant']} {...boxProps}>
       {label && (
@@ -45,9 +45,9 @@ export const ModalInline: React.FC<ModalProps & Omit<BoxProps, 'variant'>> = (pr
         </Box>
       )}
     </ModalStyled>
-  )
-}
+  );
+};
 
-ModalInline.displayName = 'ModalInline'
+ModalInline.displayName = 'ModalInline';
 
-export default ModalInline
+export default ModalInline;

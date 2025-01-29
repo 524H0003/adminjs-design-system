@@ -1,6 +1,6 @@
-import { styled } from '@styled-components'
+import { styled } from '@styled-components';
 
-import { Text } from '../../atoms/text/index.js'
+import { Text } from '../../atoms/text/index.js';
 
 /**
  * @component
@@ -13,8 +13,8 @@ const FormMessage = styled(Text)`
   margin: ${({ theme }) => theme.space.sm} 0 0;
   font-weight: normal;
   font-size: ${({ theme }) => theme.fontSizes.sm};
-`
+`;
 
-FormMessage.displayName = 'FormMessage'
+FormMessage.displayName = 'FormMessage';
 
-export default FormMessage
+export default FormMessage;

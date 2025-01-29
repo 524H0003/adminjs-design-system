@@ -1,23 +1,23 @@
-import { Meta, StoryObj } from '@storybook/react'
-import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
 
-import { Box } from '../../index.js'
-import { DatePicker, DatePickerProps } from './index.js'
+import { Box } from '../../index.js';
+import { DatePicker, DatePickerProps } from './index.js';
 
 const propertyTypes = {
   Date: 'date',
   DateTime: 'datetime',
-}
+};
 
 export const Default: StoryObj<DatePickerProps> = {
   render: (props) => {
-    const [date, setDate] = useState<string | null>('2020-12-01T14:32:00.000Z')
-    const { disabled, propertyType } = props
+    const [date, setDate] = useState<string | null>('2020-12-01T14:32:00.000Z');
+    const { disabled, propertyType } = props;
 
     const handleChange = (value) => {
-      if (value) setDate(value)
-      else setDate(null)
-    }
+      if (value) setDate(value);
+      else setDate(null);
+    };
 
     return (
       <Box height="320px">
@@ -28,9 +28,9 @@ export const Default: StoryObj<DatePickerProps> = {
           propertyType={propertyType}
         />
       </Box>
-    )
+    );
   },
-}
+};
 
 const meta: Meta<typeof DatePicker> = {
   title: 'DesignSystem/Molecules/DatePicker',
@@ -43,6 +43,6 @@ const meta: Meta<typeof DatePicker> = {
     disabled: { control: { type: 'boolean' } },
     propertyType: { options: [propertyTypes], control: { type: 'select' } },
   },
-}
+};
 
-export default meta
+export default meta;

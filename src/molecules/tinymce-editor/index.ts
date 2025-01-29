@@ -1,1 +1,1 @@
-export * from './tinymce-editor.jsx'
+export * from './tinymce-editor.jsx';

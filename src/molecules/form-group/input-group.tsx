@@ -1,9 +1,9 @@
-import { styled } from '@styled-components'
+import { styled } from '@styled-components';
 
-import { Button } from '../../atoms/button/index.js'
-import { Input } from '../../atoms/input/index.js'
-import { Label } from '../../atoms/label/index.js'
-import { Link } from '../../atoms/link/index.js'
+import { Button } from '../../atoms/button/index.js';
+import { Input } from '../../atoms/input/index.js';
+import { Label } from '../../atoms/label/index.js';
+import { Link } from '../../atoms/link/index.js';
 
 /**
  * @component
@@ -46,14 +46,14 @@ const InputGroup = styled.div`
     & + ${Label}, & + ${Button}, & + ${Link} {
       border-color: ${({ theme }) => theme.colors.grey60};
     }
-  } 
+  }
   ${Input}:focus {
     & + ${Label}, & + ${Button}, & + ${Link} {
       border-color: ${({ theme }) => theme.colors.primary100};
     }
   }
-`
+`;
 
-InputGroup.displayName = 'InputGroup'
+InputGroup.displayName = 'InputGroup';
 
-export default InputGroup
+export default InputGroup;

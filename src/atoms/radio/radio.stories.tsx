@@ -1,8 +1,8 @@
-import React from 'react'
-import { Meta, StoryFn } from '@storybook/react'
+import React from 'react';
+import { Meta, StoryFn } from '@storybook/react';
 
-import { Box, Label } from '../index.js'
-import { Radio } from './index.js'
+import { Box, Label } from '../index.js';
+import { Radio } from './index.js';
 
 export const Default: StoryFn = () => (
   <Box flex>
@@ -25,11 +25,11 @@ export const Default: StoryFn = () => (
       </Label>
     </Box>
   </Box>
-)
+);
 
 const meta: Meta<typeof Radio> = {
   title: 'DesignSystem/Atoms/Radio',
   component: Radio,
-}
+};
 
-export default meta
+export default meta;

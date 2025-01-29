@@ -1,5 +1,5 @@
-import { Meta, StoryFn } from '@storybook/react'
-import React, { useState } from 'react'
+import { Meta, StoryFn } from '@storybook/react';
+import React, { useState } from 'react';
 
 import {
   Box,
@@ -12,10 +12,10 @@ import {
   Input,
   Label,
   RichTextEditor,
-} from '../index.js'
+} from '../index.js';
 
 export const Default: StoryFn = () => {
-  const [isDrawerVisible, setIsDrawerVisible] = useState(false)
+  const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 
   return (
     <Box variant="grey" width={1}>
@@ -59,11 +59,11 @@ export const Default: StoryFn = () => {
         />
       </Box>
     </Box>
-  )
-}
+  );
+};
 
 const meta: Meta = {
   title: 'DesignSystem/Templates/Blog',
-}
+};
 
-export default meta
+export default meta;

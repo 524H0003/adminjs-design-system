@@ -9,8 +9,8 @@ import {
   borders,
   borderWidths,
   shadows,
-} from '../theme.js'
-import type { NonNullishPartialRecord } from './non-nullish-partial-record.type.js'
+} from '../theme.js';
+import type { NonNullishPartialRecord } from './non-nullish-partial-record.type.js';
 
 export interface Theme {
   colors: typeof colors;
@@ -25,6 +25,6 @@ export interface Theme {
   borderWidths: typeof borderWidths;
 }
 
-export type ThemeOverride<T=Theme> = {
-  [key in keyof T]?: NonNullishPartialRecord<T[key]>
-}
+export type ThemeOverride<T = Theme> = {
+  [key in keyof T]?: NonNullishPartialRecord<T[key]>;
+};

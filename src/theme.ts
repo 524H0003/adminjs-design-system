@@ -97,7 +97,7 @@ export const colors = {
   highlight: '#F2F2F2',
   // AdminJS logo color
   love: '#4D70EB',
-}
+};
 
 export const ColorVariants = {
   primary: 'primary100',
@@ -107,9 +107,9 @@ export const ColorVariants = {
   info: 'info',
   warning: 'warning',
   text: 'text',
-}
+};
 
-export type ColorVariant = keyof typeof ColorVariants
+export type ColorVariant = keyof typeof ColorVariants;
 
 /**
  * Sizes can be used with paddings, margins etc.
@@ -128,8 +128,7 @@ export type ColorVariant = keyof typeof ColorVariants
 
  * @property {string} xs=2px        2px - <span class="space-box" style="width: 2px;" />
  * @property {string} sm=4px        4px - <span class="space-box" style="width: 4px;" />
- * @property {string} default=8px   8px - <span class="space-box" style="width: 8px;" /> (alias md)
- * @property {string} lg=16px       16px - <span class="space-box" style="width: 16px;" />
+ * @property {string} default=8px   8px - <span class="space-box" style="width: 8px;" /> (alias md) * @property {string} lg=16px       16px - <span class="space-box" style="width: 16px;" />
  * @property {string} xl=24px       24px - <span class="space-box" style="width: 24px;" />
  * @property {string} xxl=32px      32px - <span class="space-box" style="width: 32px;" />
  * @property {string} x3=48px       48px - <span class="space-box" style="width: 48px;" />
@@ -149,7 +148,7 @@ export const space = {
   x4: '64px',
   x5: '80px',
   x6: '128px',
-}
+};
 
 /**
  * @memberof Theme
@@ -158,11 +157,7 @@ export const space = {
  * @property {string} sidebarWidth=300px
  * @property {string} maxFormWidth=740px
  */
-export const sizes = {
-  navbarHeight: '64px',
-  sidebarWidth: '300px',
-  maxFormWidth: '740px',
-}
+export const sizes = { navbarHeight: '64px', sidebarWidth: '300px', maxFormWidth: '740px' };
 
 /**
  * @memberof Theme
@@ -188,7 +183,7 @@ export const fontSizes = {
   h3: '28px',
   h2: '32px',
   h1: '40px',
-}
+};
 
 /**
  * @memberof Theme
@@ -199,21 +194,14 @@ export const fontSizes = {
  * @property {string} normal=500
  * @property {string} bolder=900
  */
-export const fontWeights = {
-  lighter: 200,
-  light: 300,
-  normal: 400,
-  bold: 700,
-  bolder: 900,
-}
+export const fontWeights = { lighter: 200, light: 300, normal: 400, bold: 700, bolder: 900 };
 
 /**
  * @memberof Theme
  * @alias lineHeights
  * @property {string} xs=10px
  * @property {string} sm=12px
- * @property {string} default=16px (alias md)
- * @property {string} lg=24px
+ * @property {string} default=16px (alias md) * @property {string} lg=24px
  * @property {string} xl=32px
  * @property {string} xxl=40px
  */
@@ -225,7 +213,7 @@ export const lineHeights = {
   lg: '24px',
   xl: '32px',
   xxl: '40px',
-}
+};
 
 /**
  * This dimension can be used with `testShadow` and `boxShadow` props provided
@@ -251,7 +239,7 @@ export const shadows = {
   card: '0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1)',
   inputFocus: '0 2px 4px 0 rgba(135,159,250,0.4)',
   buttonFocus: '0 4px 6px 0 rgba(56,202,241,0.3)',
-}
+};
 
 /**
  * Responsive breakpoints
@@ -278,9 +266,9 @@ export const breakpoints = [
   '769px',
   '1024px',
   '1324px', // 1024 + sidebarWidth
-]
+];
 
-export const font = '\'Roboto\', sans-serif' as string
+export const font = "'Roboto', sans-serif" as string;
 
 /**
  * Border styles
@@ -297,7 +285,7 @@ export const borders = {
   filterInput: ' 1px rgba(255,255,255, 0.15)',
   bg: `1px solid ${colors.bg}`,
   default: `1px solid ${colors.border}`,
-}
+};
 
 /**
  * Border widths set for an entire layout. If you like to have border radius in Button's and Box'es
@@ -307,15 +295,20 @@ export const borders = {
  * @alias borderWidths
  * @property {string} default - default border with
  */
-export const borderWidths = {
-  default: '0px',
-}
+export const borderWidths = { default: '0px' };
 
-export type VariantType = 'success' | 'info' | 'primary' | 'secondary' | 'danger' | 'light' | 'default';
+export type VariantType =
+  | 'success'
+  | 'info'
+  | 'primary'
+  | 'secondary'
+  | 'danger'
+  | 'light'
+  | 'default';
 
 // TODO: add transitions
 
-export const defaultProps = {}
+export const defaultProps = {};
 
 /**
  * The color utility parses a component's color and bg props and converts them into CSS

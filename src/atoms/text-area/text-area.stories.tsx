@@ -1,9 +1,9 @@
-import { Meta, StoryFn } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryFn } from '@storybook/react';
+import React from 'react';
 
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { Box } from '../index.js'
-import { TextArea } from './index.js'
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { Box } from '../index.js';
+import { TextArea } from './index.js';
 
 export const Default: StoryFn = () => (
   <Box width={1}>
@@ -14,11 +14,11 @@ export const Default: StoryFn = () => (
       <TextArea id="input2" placeholder="Huge borderless" width={1} borderless variant="xl" />
     </StoryWrapper>
   </Box>
-)
+);
 
 const meta: Meta<typeof TextArea> = {
   title: 'DesignSystem/Atoms/TextArea',
   component: TextArea,
-}
+};
 
-export default meta
+export default meta;

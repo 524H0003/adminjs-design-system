@@ -1,8 +1,8 @@
-import { darken, rgba } from 'polished'
-import { space, SpaceProps, layout, LayoutProps, variant } from 'styled-system'
-import { styled, css } from '@styled-components'
+import { darken, rgba } from 'polished';
+import { space, SpaceProps, layout, LayoutProps, variant } from 'styled-system';
+import { styled, css } from '@styled-components';
 
-import { cssClass } from '../../utils/css-class.js'
+import { cssClass } from '../../utils/css-class.js';
 
 const borderlessCSS = css`
   padding: 0;
@@ -17,7 +17,7 @@ const borderlessCSS = css`
   &:hover {
     cursor: pointer;
   }
-`
+`;
 
 const sizeVariants = variant({
   prop: 'variant',
@@ -44,7 +44,7 @@ const sizeVariants = variant({
       lineHeight: 'x4',
     },
   },
-})
+});
 
 /**
  * Prop Types of an Input component.
@@ -54,10 +54,11 @@ const sizeVariants = variant({
  * @alias InputProps
  * @property {string} [...] Other props from {@link LayoutProps}, {@link SpaceProps}
  */
-export type InputProps = SpaceProps & LayoutProps & {
-  borderless?: boolean;
-  variant?: 'sm' | 'lg' | 'xl' | 'default' | 'xxl';
-}
+export type InputProps = SpaceProps &
+  LayoutProps & {
+    borderless?: boolean;
+    variant?: 'sm' | 'lg' | 'xl' | 'default' | 'xxl';
+  };
 
 /**
  * Input CSS Styles which can be reused in another input component with styled-components
@@ -97,9 +98,9 @@ export const InputCSS: ReturnType<typeof css> = css<InputProps>`
     background-color: ${({ theme }) => rgba(theme.colors.inputBorder, 0.5)};
   }
 
-  ${({ borderless }) => (borderless && borderlessCSS)};
+  ${({ borderless }) => borderless && borderlessCSS};
   ${sizeVariants};
-`
+`;
 
 /**
  * @classdesc
@@ -132,15 +133,15 @@ const Input = styled.input<InputProps>`
   ${InputCSS};
   ${space};
   ${layout};
-`
+`;
 
 Input.defaultProps = {
   px: 'default',
   py: 'sm',
   className: cssClass('Input'),
-}
+};
 
-Input.displayName = 'Input'
+Input.displayName = 'Input';
 
-export { Input }
-export default Input
+export { Input };
+export default Input;

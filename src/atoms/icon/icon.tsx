@@ -1,16 +1,16 @@
-import React from 'react'
-import * as FeatherIcons from 'react-feather'
+import React from 'react';
+import * as FeatherIcons from 'react-feather';
 import {
   SpaceProps,
   space,
   color as styledColor,
   BorderRadiusProps,
   borderRadius,
-} from 'styled-system'
-import { styled, css } from '@styled-components'
+} from 'styled-system';
+import { styled, css } from '@styled-components';
 
-import { NewColorProps as ColorProps } from '../../utils/color-props.js'
-import { cssClass } from '../../utils/css-class.js'
+import { NewColorProps as ColorProps } from '../../utils/color-props.js';
+import { cssClass } from '../../utils/css-class.js';
 
 /**
  * Prop Types of an Icon component.
@@ -26,29 +26,29 @@ export type IconProps = SpaceProps &
     /**
      * CamelCased name of an icon from https://feathericons.com/
      */
-    icon?: keyof typeof FeatherIcons | string
+    icon?: keyof typeof FeatherIcons | string;
     /**
      * Size variant. Default to 16
      */
-    size?: number
+    size?: number;
     /**
      * Icon color
      */
-    color?: string
+    color?: string;
     /**
      * Icon background
      */
-    bg?: string
+    bg?: string;
     /**
      * If background should be rounded
      */
-    rounded?: boolean
+    rounded?: boolean;
 
     /**
      * Indicates if given icons should spin
      */
-    spin?: boolean
-  }
+    spin?: boolean;
+  };
 
 const spinCss = css`
   @keyframes iconSpin {
@@ -64,7 +64,7 @@ const spinCss = css`
   animation-duration: 1000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-`
+`;
 
 const Wrapper = styled.span<IconProps>`
   vertical-align: middle;
@@ -73,14 +73,15 @@ const Wrapper = styled.span<IconProps>`
   font-size: ${({ theme }) => theme.fontSizes.sm};
 
   & > svg {
-    stroke: ${({ theme, color }) => (color && color !== 'inherit' ? theme.colors[color] : 'currentColor')};
+    stroke: ${({ theme, color }) =>
+      color && color !== 'inherit' ? theme.colors[color] : 'currentColor'};
     ${({ spin }) => (spin ? spinCss : '')};
   }
   ${({ rounded }) => (rounded ? 'border-radius: 9999px;' : '')};
   ${space};
   ${styledColor};
   ${borderRadius}
-`
+`;
 
 /**
  * @classdesc
@@ -135,21 +136,21 @@ const Wrapper = styled.span<IconProps>`
  * @section design-system
  */
 const Icon: React.FC<IconProps> = (props) => {
-  const { icon, size = 16, color = 'inherit', ...other } = props
+  const { icon, size = 16, color = 'inherit', ...other } = props;
 
-  if (!icon) return null
+  if (!icon) return null;
 
-  const FeatherIcon = FeatherIcons[icon] || FeatherIcons.Slash
+  const FeatherIcon = FeatherIcons[icon] || FeatherIcons.Slash;
 
   if (FeatherIcon) {
     return (
       <Wrapper icon={icon} className={cssClass('Icon')} {...other} color={color}>
         <FeatherIcon size={size} color={color} />
       </Wrapper>
-    )
+    );
   }
-  return null
-}
+  return null;
+};
 
-export { Icon }
-export default Icon
+export { Icon };
+export default Icon;

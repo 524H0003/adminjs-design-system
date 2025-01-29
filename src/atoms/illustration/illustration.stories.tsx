@@ -1,15 +1,15 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import * as illustrations from '../illustrations/index.js'
-import { Box, Label } from '../index.js'
-import { Illustration, IllustrationProps, IllustrationVariant } from './index.js'
+import * as illustrations from '../illustrations/index.js';
+import { Box, Label } from '../index.js';
+import { Illustration, IllustrationProps, IllustrationVariant } from './index.js';
 
-const illustrationVariants = Object.keys(illustrations) as IllustrationVariant[]
+const illustrationVariants = Object.keys(illustrations) as IllustrationVariant[];
 
 export const Default: StoryObj<IllustrationProps> = {
   render: ({ variant }) => <Illustration variant={variant} />,
-}
+};
 
 export const Illustrations: StoryFn = () => (
   <Box display="grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
@@ -20,7 +20,7 @@ export const Illustrations: StoryFn = () => (
       </Box>
     ))}
   </Box>
-)
+);
 
 const meta: Meta<typeof Illustration> = {
   title: 'DesignSystem/Atoms/Illustration',
@@ -34,6 +34,6 @@ const meta: Meta<typeof Illustration> = {
     width: { control: { type: 'number' } },
     height: { control: { type: 'number' } },
   },
-}
+};
 
-export default meta
+export default meta;

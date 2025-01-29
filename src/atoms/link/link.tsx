@@ -1,9 +1,9 @@
-import { PropsWithChildren } from 'react'
-import { color, space, variant, SpaceProps } from 'styled-system'
-import { styled } from '@styled-components'
+import { PropsWithChildren } from 'react';
+import { color, space, variant, SpaceProps } from 'styled-system';
+import { styled } from '@styled-components';
 
-import { cssClass } from '../../utils/css-class.js'
-import { NewColorProps as ColorProps } from '../../utils/color-props.js'
+import { cssClass } from '../../utils/css-class.js';
+import { NewColorProps as ColorProps } from '../../utils/color-props.js';
 
 const sizeVariants = variant({
   prop: 'size',
@@ -16,7 +16,7 @@ const sizeVariants = variant({
       fontSize: 'default',
     },
   },
-})
+});
 
 const variants = variant({
   variants: {
@@ -36,7 +36,7 @@ const variants = variant({
       color: 'accent',
     },
   },
-})
+});
 
 /**
  * Prop Types of a Link component.
@@ -49,14 +49,15 @@ const variants = variant({
  *                          `onClick` etc.
  * @property {string} [...] Other props from {@link ColorProps} and {@link SpaceProps}
  */
-export type LinkProps = ColorProps & SpaceProps & {
-  /** Defines if link should be uppercase */
-  uppercase?: boolean;
-  /** Color variant */
-  variant?: 'primary' | 'danger' | 'success' | 'info' | 'secondary';
-  /** Size variant */
-  size?: 'sm' | 'lg';
-} & PropsWithChildren
+export type LinkProps = ColorProps &
+  SpaceProps & {
+    /** Defines if link should be uppercase */
+    uppercase?: boolean;
+    /** Color variant */
+    variant?: 'primary' | 'danger' | 'success' | 'info' | 'secondary';
+    /** Size variant */
+    size?: 'sm' | 'lg';
+  } & PropsWithChildren;
 
 /**
  * @classdesc
@@ -114,15 +115,15 @@ const Link = styled.a<LinkProps>`
   ${space};
   ${sizeVariants};
   ${variants};
-`
+`;
 
 Link.defaultProps = {
   variant: 'primary',
   color: 'grey60',
   className: cssClass('Link'),
-}
+};
 
-Link.displayName = 'Link'
+Link.displayName = 'Link';
 
-export { Link }
-export default Link
+export { Link };
+export default Link;

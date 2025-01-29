@@ -1,1 +1,1 @@
-export * from './made-with-love.jsx'
+export * from './made-with-love.jsx';

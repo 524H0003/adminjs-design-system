@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import { Box } from '../../atoms/box/index.js'
-import { Label } from '../../atoms/label/index.js'
-import { Text } from '../../atoms/text/index.js'
-import { ValueGroupProps } from './value-group-props.js'
+import { Box } from '../../atoms/box/index.js';
+import { Label } from '../../atoms/label/index.js';
+import { Text } from '../../atoms/text/index.js';
+import { ValueGroupProps } from './value-group-props.js';
 
 /**
  * @load ./value-group.doc.md
@@ -16,7 +16,7 @@ import { ValueGroupProps } from './value-group-props.js'
  * @section design-system
  */
 export const ValueGroup: React.FC<ValueGroupProps> = (props) => {
-  const { label, value, children } = props
+  const { label, value, children } = props;
 
   return (
     <Box mb="xl">
@@ -24,9 +24,9 @@ export const ValueGroup: React.FC<ValueGroupProps> = (props) => {
       {value ? <Text>{value}</Text> : ''}
       {children}
     </Box>
-  )
-}
+  );
+};
 
-ValueGroup.displayName = 'ValueGroup'
+ValueGroup.displayName = 'ValueGroup';
 
-export default ValueGroup
+export default ValueGroup;

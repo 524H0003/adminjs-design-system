@@ -1,1 +1,1 @@
-export type Option = string | number | boolean
+export type Option = string | number | boolean;

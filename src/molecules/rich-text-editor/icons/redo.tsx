@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default (): React.ReactElement => (
   <svg
@@ -14,4 +14,4 @@ export default (): React.ReactElement => (
       d="M9 3.881v-3.881l6 6-6 6v-3.966c-6.98-0.164-6.681 4.747-4.904 7.966-4.386-4.741-3.455-12.337 4.904-12.119z"
     />
   </svg>
-)
+);

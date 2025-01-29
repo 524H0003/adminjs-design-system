@@ -1,49 +1,49 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import template from 'lodash/template.js'
-import { rgba } from 'polished'
-import { styled, css } from '@styled-components'
+import React, { useCallback, useEffect, useState } from 'react';
+import template from 'lodash/template.js';
+import { rgba } from 'polished';
+import { styled, css } from '@styled-components';
 
-import { Box, BoxProps } from '../../atoms/box/index.js'
-import { Label } from '../../atoms/label/index.js'
-import { Text } from '../../atoms/text/index.js'
-import { DisplaySizeUnit, humanFileSize } from '../../utils/human-file-size.js'
-import { MessageBox } from '../message-box/index.js'
-import { DropZoneItem } from './drop-zone-item.jsx'
-import Image from './drop-zone-image.jsx'
+import { Box, BoxProps } from '../../atoms/box/index.js';
+import { Label } from '../../atoms/label/index.js';
+import { Text } from '../../atoms/text/index.js';
+import { DisplaySizeUnit, humanFileSize } from '../../utils/human-file-size.js';
+import { MessageBox } from '../message-box/index.js';
+import { DropZoneItem } from './drop-zone-item.jsx';
+import Image from './drop-zone-image.jsx';
 
 /**
  * @memberof DropZone
  * @alias FileSizeUnit
  */
-type FileSizeUnit = DisplaySizeUnit
+type FileSizeUnit = DisplaySizeUnit;
 
 const validateContentType = (mimeTypes: undefined | Array<string>, mimeType: string): boolean => {
   if (!mimeTypes || !mimeTypes.length) {
-    return true
+    return true;
   }
-  return mimeTypes.includes(mimeType)
-}
+  return mimeTypes.includes(mimeType);
+};
 
 const validateSize = (
   maxSize: string | number | undefined,
-  size: string | number | null,
+  size: string | number | null
 ): boolean => {
   if (!maxSize) {
-    return true
+    return true;
   }
   if (!size) {
-    return true
+    return true;
   }
-  return +maxSize >= +size
-}
+  return +maxSize >= +size;
+};
 
 const inUnit = (size: string | number, unit?: FileSizeUnit): string => {
   if (!size) {
-    return ''
+    return '';
   }
 
-  return humanFileSize(size, unit)
-}
+  return humanFileSize(size, unit);
+};
 
 export const DROPZONE_DEFAULT_TRANSLATIONS = {
   placeholder: 'Drop your file here, or click to browse',
@@ -51,22 +51,22 @@ export const DROPZONE_DEFAULT_TRANSLATIONS = {
   acceptedType: 'Supports: {{mimeTypes}}',
   unsupportedSize: 'File {{fileName}} is too big',
   unsupportedType: 'File {{fileName}} has unsupported type: {{fileType}}',
-}
+};
 
 const translate = (str: string, params?: Record<string, string | number>) => {
   try {
-    return template(str, { interpolate: /\{\{(\w+)\}\}/g })(params)
+    return template(str, { interpolate: /\{\{(\w+)\}\}/g })(params);
   } catch (e) {
-    return str
+    return str;
   }
-}
+};
 
 /**
  * @returns {void}
  * @memberof DropZone
  * @alias OnDropDownChange
  */
-export type OnDropZoneChange = (files: Array<File>) => void
+export type OnDropZoneChange = (files: Array<File>) => void;
 
 /**
  * @memberof DropZone
@@ -76,15 +76,15 @@ export type DropZoneProps = {
   /**
    * if drop zone should handle multiple uploads
    */
-  multiple?: boolean
+  multiple?: boolean;
   /**
    * Initial files collection (in case you want to hold files state)
    */
-  files?: Array<File>
+  files?: Array<File>;
   /**
    * Callback performed when the file is dropped/selected
    */
-  onChange?: OnDropZoneChange
+  onChange?: OnDropZoneChange;
   /**
    * Validate options
    */
@@ -92,16 +92,16 @@ export type DropZoneProps = {
     /**
      * Maximum size of the uploaded file in bytes. If not defined - all files are allowed.
      */
-    maxSize?: number
+    maxSize?: number;
     /**
      * Available mime types. When not defined - all mime types are allowed.
      */
-    mimeTypes?: Array<string>
-  }
+    mimeTypes?: Array<string>;
+  };
   /**
    * Upload limit display e.g.: 'KB' (upper case)
    */
-  uploadLimitIn?: FileSizeUnit
+  uploadLimitIn?: FileSizeUnit;
   /**
    * Custom drop zone translations
    * @default
@@ -113,8 +113,8 @@ export type DropZoneProps = {
    *   unsupportedType: 'File {{fileName}} has unsupported type: {{fileType}}',
    * }
    */
-  translations?: Partial<typeof DROPZONE_DEFAULT_TRANSLATIONS>
-}
+  translations?: Partial<typeof DROPZONE_DEFAULT_TRANSLATIONS>;
+};
 
 const UploadInput = styled.input`
   font-size: 100px;
@@ -125,7 +125,7 @@ const UploadInput = styled.input`
   bottom: 0;
   cursor: pointer;
   width: 100%;
-`
+`;
 
 const StyledDropZone: any = styled(Box)<{ isDragging: boolean } & BoxProps>`
   border: 1px dashed ${({ theme }) => theme.colors.inputBorder};
@@ -137,8 +137,9 @@ const StyledDropZone: any = styled(Box)<{ isDragging: boolean } & BoxProps>`
     border-color: ${({ theme }) => theme.colors.primary100};
   }
 
-  ${({ isDragging }) => isDragging
-    && css`
+  ${({ isDragging }) =>
+    isDragging &&
+    css`
       background-color: ${({ theme }) => rgba(theme.colors.primary100, 0.05)};
     `}
 
@@ -148,7 +149,7 @@ const StyledDropZone: any = styled(Box)<{ isDragging: boolean } & BoxProps>`
     padding-right: 4px;
     letter-spacing: 1px;
   }
-`
+`;
 
 /**
  * @classdesc
@@ -237,83 +238,83 @@ const DropZone: React.FC<DropZoneProps> = (props) => {
     uploadLimitIn,
     translations,
     ...other
-  } = props
-  const [isDragging, setIsDragging] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [filesToUpload, setFilesToUpload] = useState<Array<File>>(filesFromProps ?? [])
-  const t = { ...DROPZONE_DEFAULT_TRANSLATIONS, ...translations }
+  } = props;
+  const [isDragging, setIsDragging] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [filesToUpload, setFilesToUpload] = useState<Array<File>>(filesFromProps ?? []);
+  const t = { ...DROPZONE_DEFAULT_TRANSLATIONS, ...translations };
 
   useEffect(() => {
     if (filesFromProps) {
-      setFilesToUpload(filesFromProps)
+      setFilesToUpload(filesFromProps);
     }
-  }, [filesFromProps])
+  }, [filesFromProps]);
 
-  const onDragEnter = (): void => setIsDragging(true)
-  const onDragLeave = (): void => setIsDragging(false)
-  const onDragOver = (): void => setIsDragging(true)
+  const onDragEnter = (): void => setIsDragging(true);
+  const onDragLeave = (): void => setIsDragging(false);
+  const onDragOver = (): void => setIsDragging(true);
 
   const removeItem = useCallback(
     (index: number): void => {
-      const newItems = [...filesToUpload]
-      newItems.splice(index, 1)
+      const newItems = [...filesToUpload];
+      newItems.splice(index, 1);
       if (onChange) {
-        onChange(newItems)
+        onChange(newItems);
       }
-      setFilesToUpload(newItems)
+      setFilesToUpload(newItems);
     },
-    [filesToUpload, setFilesToUpload, onChange],
-  )
+    [filesToUpload, setFilesToUpload, onChange]
+  );
 
   const onDrop = useCallback(
     (event: React.DragEvent | React.SyntheticEvent): void => {
-      event.preventDefault()
-      setIsDragging(false)
+      event.preventDefault();
+      setIsDragging(false);
 
-      const { files } = (event as React.DragEvent).dataTransfer || event.target
-      const validatedFiles: Array<File> = []
+      const { files } = (event as React.DragEvent).dataTransfer || event.target;
+      const validatedFiles: Array<File> = [];
 
       for (let i = 0; i < files.length; i += 1) {
-        const file = files.item(i) as File
+        const file = files.item(i) as File;
         if (!file) {
-          return
+          return;
         }
         if (validate && !validateContentType(validate.mimeTypes, file.type)) {
           setError(
             translate(t.unsupportedType, {
               fileName: file.name,
               fileType: file.type,
-            }),
-          )
-          return
+            })
+          );
+          return;
         }
         if (validate && !validateSize(validate.maxSize, file && file.size)) {
-          setError(translate(t.unsupportedSize, { fileName: file.name }))
-          return
+          setError(translate(t.unsupportedSize, { fileName: file.name }));
+          return;
         }
-        validatedFiles.push(file)
-        setError(null)
+        validatedFiles.push(file);
+        setError(null);
       }
-      let newFiles
+      let newFiles;
       if (!multiple && validatedFiles.length) {
-        newFiles = [validatedFiles[0]]
+        newFiles = [validatedFiles[0]];
       } else {
-        newFiles = [...filesToUpload, ...validatedFiles]
+        newFiles = [...filesToUpload, ...validatedFiles];
       }
       if (onChange) {
-        onChange(newFiles)
+        onChange(newFiles);
       }
-      setFilesToUpload(newFiles)
+      setFilesToUpload(newFiles);
     },
-    [onChange, setFilesToUpload, setIsDragging],
-  )
+    [onChange, setFilesToUpload, setIsDragging]
+  );
 
   const displayUploadLimit = useCallback(() => {
     if (validate && validate.maxSize) {
-      return inUnit(validate.maxSize, uploadLimitIn)
+      return inUnit(validate.maxSize, uploadLimitIn);
     }
-    return ''
-  }, [validate])
+    return '';
+  }, [validate]);
 
   return (
     <Box>
@@ -365,10 +366,10 @@ const DropZone: React.FC<DropZoneProps> = (props) => {
         <DropZoneItem file={file} key={index} onRemove={(): void => removeItem(index)} />
       ))}
     </Box>
-  )
-}
+  );
+};
 
-DropZone.displayName = 'DropZone'
+DropZone.displayName = 'DropZone';
 
-export { DropZone }
-export default DropZone
+export { DropZone };
+export default DropZone;

@@ -1,11 +1,11 @@
-import React from 'react'
-import { styled } from '@styled-components'
+import React from 'react';
+import { styled } from '@styled-components';
 
-import { Box } from '../../atoms/box/index.js'
-import { Icon } from '../../atoms/icon/index.js'
-import { Button } from '../../atoms/button/index.js'
-import { Text } from '../../atoms/text/index.js'
-import { humanFileSize } from '../../utils/index.js'
+import { Box } from '../../atoms/box/index.js';
+import { Icon } from '../../atoms/icon/index.js';
+import { Button } from '../../atoms/button/index.js';
+import { Text } from '../../atoms/text/index.js';
+import { humanFileSize } from '../../utils/index.js';
 
 const DropZoneImg = styled.div<{ src: string }>`
   width: 100%;
@@ -15,7 +15,7 @@ const DropZoneImg = styled.div<{ src: string }>`
   background-repeat: no-repeat;
   background-position: 50% 50%;
   border-radius: ${({ theme }) => theme.space.sm};
-`
+`;
 
 const Wrapper = styled.div`
   padding: ${({ theme }) => theme.space.md};
@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   border: ${({ theme }) => theme.borders.default};
   border-color: ${({ theme }) => theme.colors.grey40};
   border-radius: ${({ theme }) => theme.space.sm};
-`
+`;
 
 /**
  * @memberof DropZoneItem
@@ -37,21 +37,21 @@ export type DropZoneItemProps = {
   /**
    * Actual file buffer
    */
-  file?: File
+  file?: File;
   /**
    * Handler function triggered after clicking remove
    */
-  onRemove?: () => void
+  onRemove?: () => void;
   /**
    * Preview image. If `file` is given and it is a image then `src` will be
    * overridden by this image.
    */
-  src?: string
+  src?: string;
   /**
    * filename. If 'file' is given it overrides what was given as a `filename`
    */
-  filename?: string
-}
+  filename?: string;
+};
 
 /**
  * @classdesc
@@ -82,10 +82,10 @@ export type DropZoneItemProps = {
  * @section design-system
  */
 const DropZoneItem: React.FC<DropZoneItemProps> = (props) => {
-  const { file, onRemove, filename } = props
-  let { src } = props
+  const { file, onRemove, filename } = props;
+  let { src } = props;
   if (file && ['image/png', 'image/jpeg', 'image/gif'].includes(file.type)) {
-    src = URL.createObjectURL(file)
+    src = URL.createObjectURL(file);
   }
 
   return (
@@ -117,10 +117,10 @@ const DropZoneItem: React.FC<DropZoneItemProps> = (props) => {
         </Button>
       )}
     </Wrapper>
-  )
-}
+  );
+};
 
-DropZoneItem.displayName = 'DropZoneItem'
+DropZoneItem.displayName = 'DropZoneItem';
 
-export { DropZoneItem }
-export default DropZoneItem
+export { DropZoneItem };
+export default DropZoneItem;

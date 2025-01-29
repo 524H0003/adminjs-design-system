@@ -1,11 +1,11 @@
-import { Meta, StoryFn } from '@storybook/react'
-import React, { useState } from 'react'
+import { Meta, StoryFn } from '@storybook/react';
+import React, { useState } from 'react';
 
-import { Box } from '../index.js'
-import { Tab, Tabs } from './index.js'
+import { Box } from '../index.js';
+import { Tab, Tabs } from './index.js';
 
 export const Default: StoryFn = () => {
-  const [selectedTab, setSelectedTab] = useState('first')
+  const [selectedTab, setSelectedTab] = useState('first');
 
   return (
     <Tabs currentTab={selectedTab} onChange={setSelectedTab}>
@@ -19,12 +19,12 @@ export const Default: StoryFn = () => {
         Third
       </Tab>
     </Tabs>
-  )
-}
+  );
+};
 
 const meta: Meta<typeof Tabs> = {
   title: 'DesignSystem/Atoms/Tabs',
   component: Tabs,
-}
+};
 
-export default meta
+export default meta;

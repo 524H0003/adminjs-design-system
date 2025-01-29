@@ -1,9 +1,9 @@
-import { Meta, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import { Box, Button, Header, Icon, Text } from '../../index.js'
-import { FullFeaturedFormGroup } from '../form-group/form-group.stories.jsx'
-import { Drawer, DrawerContent, DrawerFooter } from './index.js'
+import { Box, Button, Header, Icon, Text } from '../../index.js';
+import { FullFeaturedFormGroup } from '../form-group/form-group.stories.jsx';
+import { Drawer, DrawerContent, DrawerFooter } from './index.js';
 
 export const Default: StoryObj = {
   render: (props) => (
@@ -39,7 +39,7 @@ export const Default: StoryObj = {
       </DrawerFooter>
     </Drawer>
   ),
-}
+};
 
 const meta: Meta<typeof Drawer> = {
   title: 'DesignSystem/Molecules/Drawer',
@@ -50,6 +50,6 @@ const meta: Meta<typeof Drawer> = {
   argTypes: {
     isHidden: { control: { type: 'boolean' } },
   },
-}
+};
 
-export default meta
+export default meta;

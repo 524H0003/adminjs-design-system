@@ -1,10 +1,10 @@
-import { MarginProps, space } from 'styled-system'
-import { styled } from '@styled-components'
+import { MarginProps, space } from 'styled-system';
+import { styled } from '@styled-components';
 
 export type AvatarProps = MarginProps & {
-  alt?: string
-  src?: string
-}
+  alt?: string;
+  src?: string;
+};
 
 export const Avatar = styled.div<AvatarProps>`
   width: 36px;
@@ -37,8 +37,8 @@ export const Avatar = styled.div<AvatarProps>`
   color: ${({ theme }) => theme.colors.white};
 
   ${space}
-`
+`;
 
-Avatar.displayName = 'Avatar'
+Avatar.displayName = 'Avatar';
 
-export default Avatar
+export default Avatar;

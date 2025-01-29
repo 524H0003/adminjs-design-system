@@ -1,36 +1,37 @@
-import { getValueAndUnit } from 'polished'
-import { variant as styledVariant } from 'styled-system'
-import { styled } from '@styled-components'
+import { getValueAndUnit } from 'polished';
+import { variant as styledVariant } from 'styled-system';
+import { styled } from '@styled-components';
 
-import { Box, BoxProps } from '../../atoms/box/index.js'
-import type { VariantType } from '../../theme.js'
-import themeGet from '../../utils/theme-get.js'
+import { Box, BoxProps } from '../../atoms/box/index.js';
+import type { VariantType } from '../../theme.js';
+import themeGet from '../../utils/theme-get.js';
 
-const DEFAULT_WIDTH = 540
-const VARIANT_BORDER_WIDTH = 8
+const DEFAULT_WIDTH = 540;
+const VARIANT_BORDER_WIDTH = 8;
 
 const variantStyle = (color, props) => {
-  const newPadding = getValueAndUnit(themeGet('space', 'xxl')(props))[0] - VARIANT_BORDER_WIDTH
+  const newPadding = getValueAndUnit(themeGet('space', 'xxl')(props))[0] - VARIANT_BORDER_WIDTH;
   return {
     borderLeftWidth: VARIANT_BORDER_WIDTH,
     borderLeftStyle: 'solid',
     borderLeftColor: color,
     paddingLeft: newPadding,
-  }
-}
+  };
+};
 
-const variants = (props) => styledVariant<any, VariantType>({
-  prop: 'variant',
-  variants: {
-    primary: variantStyle('primary100', props),
-    danger: variantStyle('error', props),
-    success: variantStyle('success', props),
-    info: variantStyle('info', props),
-    secondary: variantStyle('accent', props),
-    light: variantStyle('grey60', props),
-    default: {},
-  },
-})
+const variants = (props) =>
+  styledVariant<any, VariantType>({
+    prop: 'variant',
+    variants: {
+      primary: variantStyle('primary100', props),
+      danger: variantStyle('error', props),
+      success: variantStyle('success', props),
+      info: variantStyle('info', props),
+      secondary: variantStyle('accent', props),
+      light: variantStyle('grey60', props),
+      default: {},
+    },
+  });
 
 export const ModalStyled = styled(Box)<BoxProps>`
   position: relative;
@@ -45,7 +46,7 @@ export const ModalStyled = styled(Box)<BoxProps>`
     padding-top: ${themeGet('space', 'sm')};
   }
   ${(props): any => variants(props)};
-`
+`;
 
 ModalStyled.defaultProps = {
   pl: 'xxl',
@@ -55,6 +56,6 @@ ModalStyled.defaultProps = {
   bg: 'filterBg',
   color: 'text',
   width: [1, DEFAULT_WIDTH],
-}
+};
 
-export default ModalStyled
+export default ModalStyled;

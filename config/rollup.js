@@ -1,14 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import babel from '@rollup/plugin-babel'
-import commonjs from '@rollup/plugin-commonjs'
-import resolve from '@rollup/plugin-node-resolve'
-import { minify } from 'rollup-plugin-esbuild-minify'
-import replace from '@rollup/plugin-replace'
-import presetEnv from '@babel/preset-env'
-import presetReact from '@babel/preset-react'
-import presetTs from '@babel/preset-typescript'
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import { minify } from 'rollup-plugin-esbuild-minify';
+import replace from '@rollup/plugin-replace';
+import presetEnv from '@babel/preset-env';
+import presetReact from '@babel/preset-react';
+import presetTs from '@babel/preset-typescript';
 
-const extensions = ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx']
+const extensions = ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'];
 
 const plugins = [
   resolve({ extensions }),
@@ -23,19 +23,13 @@ const plugins = [
     babelrc: false,
     babelHelpers: 'bundled',
     presets: [
-      [presetEnv, {
-        targets: {
-          node: '18',
-        },
-        loose: true,
-        modules: false,
-      }],
+      [presetEnv, { targets: { node: '18' }, loose: true, modules: false }],
       presetReact,
       presetTs,
     ],
   }),
   ...(process.env.NODE_ENV === 'production' ? [minify()] : []),
-]
+];
 
 export default {
   input: 'entry.js',
@@ -67,4 +61,4 @@ export default {
       'react-select/creatable': 'ReactSelectCreatable',
     },
   },
-}
+};

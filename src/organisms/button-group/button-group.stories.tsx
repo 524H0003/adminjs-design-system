@@ -1,15 +1,15 @@
-import { Meta, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import { Box, CardTitle, Label } from '../../index.js'
-import { ButtonGroup, ButtonGroupProps } from './index.js'
+import { Box, CardTitle, Label } from '../../index.js';
+import { ButtonGroup, ButtonGroupProps } from './index.js';
 
 export const Default: StoryObj<ButtonGroupProps & { onClick: (e, s) => void }> = {
   render: ({ onClick, size, rounded }) => {
     const handleClick = (event, source) => {
-      event.preventDefault()
-      onClick(event, source)
-    }
+      event.preventDefault();
+      onClick(event, source);
+    };
 
     const buttons = [
       {
@@ -82,7 +82,7 @@ export const Default: StoryObj<ButtonGroupProps & { onClick: (e, s) => void }> =
           },
         ],
       },
-    ]
+    ];
 
     return (
       <Box variant="grey">
@@ -92,9 +92,9 @@ export const Default: StoryObj<ButtonGroupProps & { onClick: (e, s) => void }> =
           <ButtonGroup buttons={buttons as any} size={size} rounded={rounded} />
         </Box>
       </Box>
-    )
+    );
   },
-}
+};
 
 const meta: Meta<typeof ButtonGroup> = {
   title: 'DesignSystem/Organisms/ButtonGroup',
@@ -107,6 +107,6 @@ const meta: Meta<typeof ButtonGroup> = {
     size: { options: ['sm', 'default', 'lg'], control: { type: 'select' } },
     rounded: { control: { type: 'boolean' } },
   },
-}
+};
 
-export default meta
+export default meta;

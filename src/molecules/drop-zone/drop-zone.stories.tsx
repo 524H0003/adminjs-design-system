@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import { DROPZONE_DEFAULT_TRANSLATIONS, DropZone, DropZoneProps } from './index.js'
+import { DROPZONE_DEFAULT_TRANSLATIONS, DropZone, DropZoneProps } from './index.js';
 
 export const Default: StoryObj<
   DropZoneProps & { maxSize: number; mimeTypes: string[] } & typeof DROPZONE_DEFAULT_TRANSLATIONS
@@ -24,7 +24,7 @@ export const Default: StoryObj<
       translations={{ placeholder, acceptedSize, acceptedType, unsupportedSize, unsupportedType }}
     />
   ),
-}
+};
 
 const meta: Meta<typeof DropZone> = {
   title: 'DesignSystem/Molecules/DropZone',
@@ -89,6 +89,6 @@ const meta: Meta<typeof DropZone> = {
       control: { type: 'text' },
     },
   } as any,
-}
+};
 
-export default meta
+export default meta;

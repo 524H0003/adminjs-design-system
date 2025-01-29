@@ -1,8 +1,8 @@
-import { TypographyProps, SpaceProps } from 'styled-system'
-import { styled } from '@styled-components'
+import { TypographyProps, SpaceProps } from 'styled-system';
+import { styled } from '@styled-components';
 
-import themeGet from '../../utils/theme-get.js'
-import CaptionShared from './caption-shared.js'
+import themeGet from '../../utils/theme-get.js';
+import CaptionShared from './caption-shared.js';
 
 export const CardTitle = styled('div')<TypographyProps & SpaceProps>`
   ${CaptionShared};
@@ -12,8 +12,8 @@ export const CardTitle = styled('div')<TypographyProps & SpaceProps>`
   * > &:first-child {
     margin-top: 0;
   }
-`
+`;
 
-CardTitle.displayName = 'CardTitle'
+CardTitle.displayName = 'CardTitle';
 
-export default CardTitle
+export default CardTitle;

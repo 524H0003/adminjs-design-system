@@ -1,14 +1,14 @@
-import { styled, css } from '@styled-components'
+import { styled, css } from '@styled-components';
 
-import { cssClass } from '../../utils/index.js'
-import ButtonCSS from './button-css.jsx'
-import type { ButtonProps } from './button-props.js'
+import { cssClass } from '../../utils/index.js';
+import ButtonCSS from './button-css.jsx';
+import type { ButtonProps } from './button-props.js';
 
 const addContent = css<ButtonProps>`
   &:before {
     content: '${({ label }) => label}';
   }
-`
+`;
 
 /**
  * @load ./button.doc.md
@@ -25,15 +25,15 @@ const Button = styled.button.attrs((props) => ({
 }))<ButtonProps>`
   ${ButtonCSS};
   ${({ label }) => (label ? addContent : '')};
-`
+`;
 
 Button.defaultProps = {
   variant: 'text',
   color: 'primary',
   size: 'md',
-}
+};
 
-Button.displayName = 'Button'
+Button.displayName = 'Button';
 
-export { Button }
-export default Button
+export { Button };
+export default Button;

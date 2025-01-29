@@ -1,1 +1,1 @@
-export * from './text.jsx'
+export * from './text.jsx';

@@ -1,19 +1,19 @@
-import { Meta, StoryObj } from '@storybook/react'
-import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
 
-import { Box } from '../../index.js'
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { NavigationElement, NavigationElementProps } from './index.js'
+import { Box } from '../../index.js';
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { NavigationElement, NavigationElementProps } from './index.js';
 
 export const Default: StoryObj<NavigationElementProps> = {
   render: (props) => {
-    const [isOpen, setOpen] = useState(false)
+    const [isOpen, setOpen] = useState(false);
 
     const handleClick = (event) => {
-      event.stopPropagation()
-      event.preventDefault()
-      setOpen(!isOpen)
-    }
+      event.stopPropagation();
+      event.preventDefault();
+      setOpen(!isOpen);
+    };
 
     return (
       <StoryWrapper label="Navigation Element">
@@ -21,9 +21,9 @@ export const Default: StoryObj<NavigationElementProps> = {
           <NavigationElement {...props} href="#" isOpen={isOpen} onClick={handleClick} />
         </Box>
       </StoryWrapper>
-    )
+    );
   },
-}
+};
 
 const meta: Meta<typeof NavigationElement> = {
   title: 'DesignSystem/Molecules/NavigationElement',
@@ -37,6 +37,6 @@ const meta: Meta<typeof NavigationElement> = {
     icon: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
   },
-}
+};
 
-export default meta
+export default meta;

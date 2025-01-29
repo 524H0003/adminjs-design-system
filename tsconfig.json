@@ -11,6 +11,7 @@
     "strictPropertyInitialization": true,
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
+    "strict": true,
     "noImplicitThis": true,
     "skipLibCheck": true,
     "moduleResolution": "nodenext",
@@ -19,18 +20,9 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "rootDir": ".",
-    "paths": {
-      "@styled-components": ["src/utils/styled.js"]
-    },
-    "plugins": [
-      { "transform": "typescript-transform-paths", "afterDeclarations": true }
-    ]
+    "paths": { "@styled-components": ["src/utils/styled.js"] },
+    "plugins": [{ "transform": "typescript-transform-paths", "afterDeclarations": true }]
   },
-  "include": [
-    "./src/**/*",
-    "./spec/**/*"
-  ],
-  "exclude": [
-    "./src/**/*.spec.*"
-  ]
+  "include": ["./src/**/*", "./spec/**/*"],
+  "exclude": ["./src/**/*.spec.*"]
 }

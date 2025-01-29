@@ -1,29 +1,25 @@
-import { getValueAndUnit } from 'polished'
+import { getValueAndUnit } from 'polished';
 
-export function themeGet(
-  kind: string,
-  value?: string | number,
-  offset?: number | string,
-): any {
+export function themeGet(kind: string, value?: string | number, offset?: number | string): any {
   return ({ theme }) => {
-    const themeVal = value ? theme[kind][value] : theme[kind]
+    const themeVal = value ? theme[kind][value] : theme[kind];
 
     if (themeVal && offset) {
-      let offsetValue: number
+      let offsetValue: number;
       if (typeof offset === 'string') {
-        ([offsetValue] = getValueAndUnit(offset))
+        [offsetValue] = getValueAndUnit(offset);
       } else {
-        offsetValue = offset
+        offsetValue = offset;
       }
-      const [pxValue, unit] = getValueAndUnit(themeVal)
-      return `${pxValue + offsetValue}${unit}`
+      const [pxValue, unit] = getValueAndUnit(themeVal);
+      return `${pxValue + offsetValue}${unit}`;
     }
 
-    return themeVal
-  }
+    return themeVal;
+  };
 }
 
-export default themeGet
+export default themeGet;
 
 /**
  *

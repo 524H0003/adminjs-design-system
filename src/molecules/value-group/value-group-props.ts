@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode } from 'react';
 
 /**
  * Props passed to ValueGroup
@@ -7,10 +7,9 @@ import { ReactNode } from 'react'
  * @alias ValueGroupProps
  */
 export type ValueGroupProps = {
-  /** Value group label */
-  label: string,
+  /** Value group label */ label: string;
   /** Field value passed as a value */
-  value?: string | number | boolean,
+  value?: string | number | boolean;
   /** Field value passed as children node */
-  children?: ReactNode,
-}
+  children?: ReactNode;
+};

@@ -1,18 +1,18 @@
-import { Meta, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { Button, CheckBox, Icon, Link, Text } from '../index.js'
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableRow } from './index.js'
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { Button, CheckBox, Icon, Link, Text } from '../index.js';
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableRow } from './index.js';
 
 export const Default: StoryObj<{ onClick: (e) => void }> = {
   render: ({ onClick }) => {
     const handleClick = (event) => {
-      event.preventDefault()
-      onClick(event)
-    }
+      event.preventDefault();
+      onClick(event);
+    };
 
-    const header = ['Name', 'Surname', 'Gender', 'Age']
+    const header = ['Name', 'Surname', 'Gender', 'Age'];
 
     const data = [
       ['John', 'Doe', 'Male', '57'],
@@ -20,7 +20,7 @@ export const Default: StoryObj<{ onClick: (e) => void }> = {
       ['Patrick', 'Jogs', 'Male', '35'],
       ['Elisabeth', 'Briggs', 'Female', '28'],
       ['Jda', 'Karo', 'Female', '22'],
-    ]
+    ];
 
     return (
       <StoryWrapper label="">
@@ -61,9 +61,9 @@ export const Default: StoryObj<{ onClick: (e) => void }> = {
           </TableBody>
         </Table>
       </StoryWrapper>
-    )
+    );
   },
-}
+};
 
 const meta: Meta<typeof Table> = {
   title: 'DesignSystem/Atoms/Table',
@@ -71,6 +71,6 @@ const meta: Meta<typeof Table> = {
   argTypes: {
     onClick: { action: 'clicked' },
   },
-}
+};
 
-export default meta
+export default meta;

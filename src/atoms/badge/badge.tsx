@@ -1,9 +1,9 @@
-import { color, space, typography, SpaceProps, TypographyProps, variant } from 'styled-system'
-import { styled } from '@styled-components'
+import { color, space, typography, SpaceProps, TypographyProps, variant } from 'styled-system';
+import { styled } from '@styled-components';
 
-import { VariantType } from '../../theme.js'
-import { NewColorProps as ColorProps } from '../../utils/color-props.js'
-import { cssClass } from '../../utils/css-class.js'
+import { VariantType } from '../../theme.js';
+import { NewColorProps as ColorProps } from '../../utils/color-props.js';
+import { cssClass } from '../../utils/css-class.js';
 
 /**
  * @load ./badge-props.doc.md
@@ -12,38 +12,41 @@ import { cssClass } from '../../utils/css-class.js'
  * @property {string} [...] Other props from {@link ColorProps}, {@link SpaceProps}
  *                          and {@link TypographyProps}
  */
-export type BadgeProps = SpaceProps & TypographyProps & ColorProps & {
-  /**
-   * Color variant
-   */
-  variant?: VariantType;
-  /**
-   * Outline version
-   */
-  outline?: boolean;
-  /**
-   * Size variant
-   */
-  size?: 'sm' | 'lg' | 'default';
-}
+export type BadgeProps = SpaceProps &
+  TypographyProps &
+  ColorProps & {
+    /**
+     * Color variant
+     */
+    variant?: VariantType;
+    /**
+     * Outline version
+     */
+    outline?: boolean;
+    /**
+     * Size variant
+     */
+    size?: 'sm' | 'lg' | 'default';
+  };
 
 const variantStyle = (variantColor: string, props: BadgeProps): Record<string, any> => ({
   bg: variantColor,
   borderColor: variantColor,
   color: props.outline ? variantColor : 'white',
-})
+});
 
-const colorVariant = (props: BadgeProps): Record<string, any> => variant({
-  variants: {
-    primary: variantStyle('primary100', props),
-    danger: variantStyle('error', props),
-    success: variantStyle('success', props),
-    info: variantStyle('info', props),
-    secondary: variantStyle('accent', props),
-    light: variantStyle('light', props),
-    default: {},
-  },
-})
+const colorVariant = (props: BadgeProps): Record<string, any> =>
+  variant({
+    variants: {
+      primary: variantStyle('primary100', props),
+      danger: variantStyle('error', props),
+      success: variantStyle('success', props),
+      info: variantStyle('info', props),
+      secondary: variantStyle('accent', props),
+      light: variantStyle('light', props),
+      default: {},
+    },
+  });
 
 const sizeVariants = variant({
   prop: 'size',
@@ -57,7 +60,7 @@ const sizeVariants = variant({
     },
     default: {},
   },
-})
+});
 
 /**
  * @load ./badge.doc.md
@@ -83,7 +86,7 @@ const Badge = styled.span<BadgeProps>`
   ${(props): any => colorVariant(props)};
   ${sizeVariants};
   ${({ outline }): string => (outline ? 'background: transparent;' : '')}
-`
+`;
 
 Badge.defaultProps = {
   px: 'default',
@@ -91,9 +94,9 @@ Badge.defaultProps = {
   fontSize: 'sm',
   bg: 'grey40',
   className: cssClass('Badge'),
-}
+};
 
-Badge.displayName = 'Badge'
+Badge.displayName = 'Badge';
 
-export { Badge }
-export default Badge
+export { Badge };
+export default Badge;

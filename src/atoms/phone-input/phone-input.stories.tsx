@@ -1,10 +1,10 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import { FormGroup } from '../../index.js'
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { Box, Button } from '../index.js'
-import { PhoneInput } from './index.js'
+import { FormGroup } from '../../index.js';
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { Box, Button } from '../index.js';
+import { PhoneInput } from './index.js';
 
 export const Default: StoryObj = {
   render: (args) => (
@@ -17,7 +17,7 @@ export const Default: StoryObj = {
       </StoryWrapper>
     </Box>
   ),
-}
+};
 
 export const Examples: StoryFn = () => (
   <Box width={1}>
@@ -25,7 +25,7 @@ export const Examples: StoryFn = () => (
       <PhoneInput id="input1" placeholder="Simple phone field..." />
     </StoryWrapper>
   </Box>
-)
+);
 
 const meta: Meta<typeof PhoneInput> = {
   title: 'DesignSystem/Atoms/PhoneInput',
@@ -42,6 +42,6 @@ const meta: Meta<typeof PhoneInput> = {
     variant: { options: ['sm', 'lg', 'xl', 'default'], control: { type: 'select' } },
     width: { control: { type: 'number', min: 0, max: 1, step: 0.1 } },
   },
-}
+};
 
-export default meta
+export default meta;

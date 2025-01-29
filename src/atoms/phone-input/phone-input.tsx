@@ -1,14 +1,14 @@
-import React from 'react'
-import ReactPhoneInputLib, { PhoneInputProps as ReactPhoneInputProps } from 'react-phone-input-2'
-import { space, typography, layout, TypographyProps } from 'styled-system'
-import { styled } from '@styled-components'
+import React from 'react';
+import ReactPhoneInputLib, { PhoneInputProps as ReactPhoneInputProps } from 'react-phone-input-2';
+import { space, typography, layout, TypographyProps } from 'styled-system';
+import { styled } from '@styled-components';
 
-import { InputCSS, InputProps } from '../input/index.js'
-import PhoneInputStyles from '../../utils/phone-input.styles.js'
-import { cssClass } from '../../utils/css-class.js'
+import { InputCSS, InputProps } from '../input/index.js';
+import PhoneInputStyles from '../../utils/phone-input.styles.js';
+import { cssClass } from '../../utils/css-class.js';
 
-const ReactPhoneInput = (ReactPhoneInputLib as any).default ?? ReactPhoneInputLib
-const ReactPhoneInputComponent = ReactPhoneInput.default ?? ReactPhoneInput
+const ReactPhoneInput = (ReactPhoneInputLib as any).default ?? ReactPhoneInputLib;
+const ReactPhoneInputComponent = ReactPhoneInput.default ?? ReactPhoneInput;
 
 /**
  * Prop Types of a PhoneInput component.
@@ -24,7 +24,7 @@ const ReactPhoneInputComponent = ReactPhoneInput.default ?? ReactPhoneInput
 export type PhoneInputProps = ReactPhoneInputProps &
   TypographyProps &
   InputProps &
-  React.HTMLAttributes<HTMLDivElement>
+  React.HTMLAttributes<HTMLDivElement>;
 
 /**
  * @classdesc
@@ -62,18 +62,19 @@ const PhoneInput = styled(ReactPhoneInputComponent)<PhoneInputProps>`
     ${layout}
   }
 
-  .form-control, .flag-dropdown {
+  .form-control,
+  .flag-dropdown {
     border-radius: 2px;
   }
-`
+`;
 
 PhoneInput.defaultProps = {
   px: 'default',
   py: 'sm',
   className: cssClass('PhoneInput'),
-}
+};
 
-PhoneInput.displayName = 'PhoneInput'
+PhoneInput.displayName = 'PhoneInput';
 
-export { PhoneInput }
-export default PhoneInput
+export { PhoneInput };
+export default PhoneInput;

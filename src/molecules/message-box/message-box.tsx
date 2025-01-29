@@ -1,13 +1,13 @@
 /* eslint-disable max-len */
-import { DefaultTheme, styled } from '@styled-components'
-import React from 'react'
-import { SpaceProps, variant as styledVariant } from 'styled-system'
+import { DefaultTheme, styled } from '@styled-components';
+import React from 'react';
+import { SpaceProps, variant as styledVariant } from 'styled-system';
 
-import { Box } from '../../atoms/box/index.js'
-import { Button } from '../../atoms/button/index.js'
-import { Icon, IconProps } from '../../atoms/icon/index.js'
-import { Text } from '../../atoms/text/index.js'
-import { cssClass } from '../../utils/css-class.js'
+import { Box } from '../../atoms/box/index.js';
+import { Button } from '../../atoms/button/index.js';
+import { Icon, IconProps } from '../../atoms/icon/index.js';
+import { Text } from '../../atoms/text/index.js';
+import { cssClass } from '../../utils/css-class.js';
 
 /**
  * Prop Types of a MessageBox component.
@@ -18,26 +18,26 @@ import { cssClass } from '../../utils/css-class.js'
  */
 type MessageBoxProps = {
   /** Triggered when user clicks close button. If not given close button won't be seen */
-  onCloseClick?: () => void
+  onCloseClick?: () => void;
   /** Title content of a message */
-  message?: string
+  message?: string;
   /**
    * Variant
    * @default 'info'
    */
-  variant?: 'danger' | 'warning' | 'success' | 'info'
+  variant?: 'danger' | 'warning' | 'success' | 'info';
   /** Icon which will be seen in the title */
-  icon?: IconProps['icon']
+  icon?: IconProps['icon'];
   /** Size variant */
-  size?: 'sm'
+  size?: 'sm';
   /** Optional html style property */
-  style?: Record<string, string>
+  style?: Record<string, string>;
   /** Optional children, when given component will be expanded */
-  children?: React.ReactNode
-}
+  children?: React.ReactNode;
+};
 
-type Props = SpaceProps & MessageBoxProps
-export { Props as MessageBoxProps }
+type Props = SpaceProps & MessageBoxProps;
+export { Props as MessageBoxProps };
 
 const sizeVariants = styledVariant({
   prop: 'size',
@@ -49,7 +49,7 @@ const sizeVariants = styledVariant({
       },
     },
   },
-})
+});
 
 const StyledMessageBox: any = styled(Box)<MessageBoxProps>`
   line-height: ${({ theme }) => theme.lineHeights.default};
@@ -63,7 +63,7 @@ const StyledMessageBox: any = styled(Box)<MessageBoxProps>`
   }
 
   ${sizeVariants};
-`
+`;
 
 /**
  * @classdesc
@@ -127,26 +127,26 @@ const StyledMessageBox: any = styled(Box)<MessageBoxProps>`
  * @section design-system
  */
 export const MessageBox: React.FC<Props> = (props) => {
-  const { onCloseClick, message, icon, children, variant = 'info', size, ...other } = props
+  const { onCloseClick, message, icon, children, variant = 'info', size, ...other } = props;
 
   const variantIcon: Record<typeof variant, IconProps['icon']> = {
     success: 'Check',
     danger: 'XCircle',
     info: 'Info',
     warning: 'AlertCircle',
-  }
+  };
   const variantBg: Record<typeof variant, keyof DefaultTheme['colors']> = {
     success: 'successLight',
     danger: 'errorLight',
     info: 'infoLight',
     warning: 'warningLight',
-  }
+  };
   const variantIconBg: Record<typeof variant, keyof DefaultTheme['colors']> = {
     success: 'success',
     danger: 'error',
     info: 'info',
     warning: 'warning',
-  }
+  };
 
   return (
     <Box className={cssClass('MessageBox')} {...other}>
@@ -167,7 +167,14 @@ export const MessageBox: React.FC<Props> = (props) => {
           </Box>
 
           {onCloseClick && (
-            <Button variant="text" size="icon" onClick={onCloseClick} rounded color={variant} ml="xl">
+            <Button
+              variant="text"
+              size="icon"
+              onClick={onCloseClick}
+              rounded
+              color={variant}
+              ml="xl"
+            >
               <Icon icon="X" />
             </Button>
           )}
@@ -177,9 +184,9 @@ export const MessageBox: React.FC<Props> = (props) => {
         </Box>
       </StyledMessageBox>
     </Box>
-  )
-}
+  );
+};
 
-MessageBox.displayName = 'MessageBox'
+MessageBox.displayName = 'MessageBox';
 
-export default MessageBox
+export default MessageBox;

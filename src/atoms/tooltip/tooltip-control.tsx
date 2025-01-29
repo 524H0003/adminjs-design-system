@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 
-import useWindowSize from '../../hooks/use-window-size.js'
-import { PortalProps } from './tooltip-props.js'
-import { StyledTooltip } from './tooltip-styled.jsx'
+import useWindowSize from '../../hooks/use-window-size.js';
+import { PortalProps } from './tooltip-props.js';
+import { StyledTooltip } from './tooltip-styled.jsx';
 
 type PositionProps = {
   top: number;
   left: number;
   width: number;
   height: number;
-}
+};
 
 /**
  * @component
@@ -17,12 +17,12 @@ type PositionProps = {
  * @memberof Tooltip
  */
 export const TooltipControl: React.FC<PortalProps> = (props) => {
-  const { title, childRef, direction = 'bottom', ContentElement, size } = props
-  const tooltipRef = useRef<HTMLElement>(null)
-  const [dimension, setDimension] = useState<Pick<PositionProps, 'width' | 'height'> | null>(null)
-  const [position, setPosition] = useState<Pick<PositionProps, 'left' | 'top'> | null>(null)
-  const [elementPosition, setElementPosition] = useState<PositionProps | null>(null)
-  const windowSize = useWindowSize()
+  const { title, childRef, direction = 'bottom', ContentElement, size } = props;
+  const tooltipRef = useRef<HTMLElement>(null);
+  const [dimension, setDimension] = useState<Pick<PositionProps, 'width' | 'height'> | null>(null);
+  const [position, setPosition] = useState<Pick<PositionProps, 'left' | 'top'> | null>(null);
+  const [elementPosition, setElementPosition] = useState<PositionProps | null>(null);
+  const windowSize = useWindowSize();
 
   useEffect(() => {
     if (childRef.current) {
@@ -31,73 +31,65 @@ export const TooltipControl: React.FC<PortalProps> = (props) => {
         top: offsetTop,
         left: offsetLeft,
         height: clientHeight,
-      } = childRef.current.getBoundingClientRect()
+      } = childRef.current.getBoundingClientRect();
       setElementPosition({
         width: clientWidth,
         top: offsetTop,
         left: offsetLeft,
         height: clientHeight,
-      })
+      });
     }
-  }, [
-    childRef,
-    windowSize?.width,
-    windowSize?.height,
-  ])
+  }, [childRef, windowSize?.width, windowSize?.height]);
 
   useEffect(() => {
     if (tooltipRef.current) {
-      const { clientWidth, clientHeight } = tooltipRef.current
+      const { clientWidth, clientHeight } = tooltipRef.current;
       setDimension({
         width: clientWidth,
         height: clientHeight,
-      })
+      });
     }
-  }, [
-    tooltipRef?.current?.clientWidth,
-    tooltipRef?.current?.clientHeight,
-    title,
-  ])
+  }, [tooltipRef?.current?.clientWidth, tooltipRef?.current?.clientHeight, title]);
 
   useEffect(() => {
     if (!elementPosition || !dimension) {
-      return
+      return;
     }
 
     // eslint-disable-next-line default-case
     switch (direction) {
-    case 'bottom': {
-      setPosition({
-        top: elementPosition.top + elementPosition.height,
-        left: elementPosition.left + elementPosition.width / 2 - dimension.width / 2,
-      })
-      break
+      case 'bottom': {
+        setPosition({
+          top: elementPosition.top + elementPosition.height,
+          left: elementPosition.left + elementPosition.width / 2 - dimension.width / 2,
+        });
+        break;
+      }
+      case 'top': {
+        setPosition({
+          top: elementPosition.top - dimension.height,
+          left: elementPosition.left + elementPosition.width / 2 - dimension.width / 2,
+        });
+        break;
+      }
+      case 'left': {
+        setPosition({
+          top: elementPosition.top + elementPosition.height / 2 - dimension.height / 2,
+          left: elementPosition.left - dimension.width,
+        });
+        break;
+      }
+      case 'right': {
+        setPosition({
+          top: elementPosition.top + elementPosition.height / 2 - dimension.height / 2,
+          left: elementPosition.left + elementPosition.width,
+        });
+        break;
+      }
     }
-    case 'top': {
-      setPosition({
-        top: elementPosition.top - dimension.height,
-        left: elementPosition.left + elementPosition.width / 2 - dimension.width / 2,
-      })
-      break
-    }
-    case 'left': {
-      setPosition({
-        top: elementPosition.top + elementPosition.height / 2 - dimension.height / 2,
-        left: elementPosition.left - dimension.width,
-      })
-      break
-    }
-    case 'right': {
-      setPosition({
-        top: elementPosition.top + elementPosition.height / 2 - dimension.height / 2,
-        left: elementPosition.left + elementPosition.width,
-      })
-      break
-    }
-    }
-  }, [elementPosition, dimension, direction])
+  }, [elementPosition, dimension, direction]);
 
-  const isVisible = !!(dimension && position)
+  const isVisible = !!(dimension && position);
 
   return (
     <StyledTooltip
@@ -108,11 +100,11 @@ export const TooltipControl: React.FC<PortalProps> = (props) => {
       direction={direction}
       isVisible={isVisible}
     >
-      { ContentElement || title }
+      {ContentElement || title}
     </StyledTooltip>
-  )
-}
+  );
+};
 
-TooltipControl.displayName = 'TooltipControl'
+TooltipControl.displayName = 'TooltipControl';
 
-export default TooltipControl
+export default TooltipControl;

@@ -1,17 +1,17 @@
-import { Meta, StoryFn } from '@storybook/react'
-import React, { SetStateAction, useState } from 'react'
+import { Meta, StoryFn } from '@storybook/react';
+import React, { SetStateAction, useState } from 'react';
 
-import { Box, Button } from '../../index.js'
-import { Step, Stepper } from './index.js'
+import { Box, Button } from '../../index.js';
+import { Step, Stepper } from './index.js';
 
 const steps = [
   { number: 1, label: 'Do this first' },
   { number: 2, label: "Don't forget this" },
   { number: 3, label: 'And finally this' },
-]
+];
 
 export const clickableSteps: StoryFn = () => {
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(1);
 
   return (
     <Stepper>
@@ -27,11 +27,11 @@ export const clickableSteps: StoryFn = () => {
         </Step>
       ))}
     </Stepper>
-  )
-}
+  );
+};
 
 export const stepsWithBottomNavigation: StoryFn = () => {
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(1);
 
   return (
     <Box>
@@ -65,12 +65,12 @@ export const stepsWithBottomNavigation: StoryFn = () => {
         </Button>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
 const meta: Meta<typeof Stepper> = {
   title: 'DesignSystem/Molecules/Stepper',
   component: Stepper,
-}
+};
 
-export default meta
+export default meta;

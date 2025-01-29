@@ -1,7 +1,7 @@
-import { rgba } from 'polished'
-import { styled } from '@styled-components'
+import { rgba } from 'polished';
+import { styled } from '@styled-components';
 
-import { cssClass } from '../../utils/css-class.js'
+import { cssClass } from '../../utils/css-class.js';
 
 /**
  * @component
@@ -15,12 +15,12 @@ const TableRow = styled.tr`
   &:not(.selected):hover {
     background: rgba(0, 0, 0, 0.01);
   }
-`
+`;
 
 TableRow.defaultProps = {
   className: cssClass('TableRow'),
-}
+};
 
-TableRow.displayName = 'TableRow'
+TableRow.displayName = 'TableRow';
 
-export default TableRow
+export default TableRow;

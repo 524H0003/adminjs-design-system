@@ -1,15 +1,15 @@
-import { space, typography, layout, TypographyProps } from 'styled-system'
+import { space, typography, layout, TypographyProps } from 'styled-system';
 import CurrencyInputFieldLib, {
   CurrencyInputProps as CurrencyInputFieldProps,
   formatValue as formatCurrencyProperty,
-} from 'react-currency-input-field'
-import { styled } from '@styled-components'
+} from 'react-currency-input-field';
+import { styled } from '@styled-components';
 
-import { InputCSS, InputProps } from '../input/index.js'
-import { cssClass } from '../../utils/css-class.js'
+import { InputCSS, InputProps } from '../input/index.js';
+import { cssClass } from '../../utils/css-class.js';
 
-const CurrencyInputField = (CurrencyInputFieldLib as any).default ?? CurrencyInputFieldLib
-const CurrencyInputComponent = CurrencyInputField.default ?? CurrencyInputField
+const CurrencyInputField = (CurrencyInputFieldLib as any).default ?? CurrencyInputFieldLib;
+const CurrencyInputComponent = CurrencyInputField.default ?? CurrencyInputField;
 
 /**
  * Prop Types of a CurrencyInput component.
@@ -22,9 +22,7 @@ const CurrencyInputComponent = CurrencyInputField.default ?? CurrencyInputField
  * @property {string} [...] Props from {@link SpaceProps}, {@link TypographyProps}
  *                          and {@link LayoutProps} + they extend {@link InputProps}
  */
-export type CurrencyInputProps = TypographyProps &
-  InputProps &
-  CurrencyInputFieldProps
+export type CurrencyInputProps = TypographyProps & InputProps & CurrencyInputFieldProps;
 
 /**
  * @classdesc
@@ -60,15 +58,15 @@ const CurrencyInput = styled(CurrencyInputComponent)<CurrencyInputProps>`
   ${typography};
 
   width: 100%;
-`
+`;
 
 CurrencyInput.defaultProps = {
   px: 'default',
   py: 'sm',
   className: cssClass('CurrencyInput'),
-}
+};
 
-CurrencyInput.displayName = 'CurrencyInput'
+CurrencyInput.displayName = 'CurrencyInput';
 
-export { CurrencyInput, formatCurrencyProperty }
-export default CurrencyInput
+export { CurrencyInput, formatCurrencyProperty };
+export default CurrencyInput;

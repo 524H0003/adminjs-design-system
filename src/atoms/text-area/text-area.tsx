@@ -1,8 +1,8 @@
-import { space, typography, layout, TypographyProps } from 'styled-system'
-import { styled } from '@styled-components'
+import { space, typography, layout, TypographyProps } from 'styled-system';
+import { styled } from '@styled-components';
 
-import { InputCSS, InputProps } from '../input/index.js'
-import { cssClass } from '../../utils/css-class.js'
+import { InputCSS, InputProps } from '../input/index.js';
+import { cssClass } from '../../utils/css-class.js';
 
 /**
  * Prop Types of a TextArea component.
@@ -14,7 +14,7 @@ import { cssClass } from '../../utils/css-class.js'
  * @property {string} [...] Props from {@link SpaceProps}, {@link TypographyProps}
  *                          and {@link LayoutProps} + they extend {@link InputProps}
  */
-export type TextAreaProps = TypographyProps & InputProps
+export type TextAreaProps = TypographyProps & InputProps;
 
 /**
  * @classdesc
@@ -48,16 +48,16 @@ const TextArea = styled.textarea<TextAreaProps>`
   ${space};
   ${layout};
   ${typography};
-`
+`;
 
 TextArea.defaultProps = {
   px: 'default',
   py: 'default',
   fontSize: 'default',
   className: cssClass('TextArea'),
-}
+};
 
-TextArea.displayName = 'TextArea'
+TextArea.displayName = 'TextArea';
 
-export { TextArea }
-export default TextArea
+export { TextArea };
+export default TextArea;

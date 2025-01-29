@@ -1,9 +1,9 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { Box, Header, Text as TextComponent } from '../index.js'
-import { Badge } from './index.js'
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { Box, Header, Text as TextComponent } from '../index.js';
+import { Badge } from './index.js';
 
 enum BadgeVariant {
   Default = 'default',
@@ -20,12 +20,12 @@ enum BadgeSize {
   Large = 'lg',
 }
 
-const variants = Object.values(BadgeVariant)
-const sizes = Object.values(BadgeSize)
+const variants = Object.values(BadgeVariant);
+const sizes = Object.values(BadgeSize);
 
 export const Default: StoryObj<typeof Badge> = {
   render: (args) => <Badge {...args}>Badge example</Badge>,
-}
+};
 
 export const Examples: StoryFn = () => (
   <Box width={1}>
@@ -70,7 +70,7 @@ export const Examples: StoryFn = () => (
       </TextComponent>
     </StoryWrapper>
   </Box>
-)
+);
 
 const meta: Meta<typeof Badge> = {
   title: 'DesignSystem/Atoms/Badge',
@@ -85,6 +85,6 @@ const meta: Meta<typeof Badge> = {
     size: { options: sizes, control: { type: 'select' } },
     outline: { control: { type: 'boolean' } },
   },
-}
+};
 
-export default meta
+export default meta;

@@ -1,10 +1,10 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import { FormGroup } from '../../index.js'
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { Box, Button } from '../index.js'
-import { CurrencyInput } from './index.js'
+import { FormGroup } from '../../index.js';
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { Box, Button } from '../index.js';
+import { CurrencyInput } from './index.js';
 
 export const Default: StoryObj = {
   render: (props) => (
@@ -12,12 +12,14 @@ export const Default: StoryObj = {
       <StoryWrapper label="Currency input example">
         <FormGroup>
           <CurrencyInput {...props} />
-          <Button type="submit" mt="lg">Submit</Button>
+          <Button type="submit" mt="lg">
+            Submit
+          </Button>
         </FormGroup>
       </StoryWrapper>
     </Box>
   ),
-}
+};
 
 export const Examples: StoryFn = () => (
   <Box width={1}>
@@ -29,7 +31,7 @@ export const Examples: StoryFn = () => (
       />
     </StoryWrapper>
   </Box>
-)
+);
 
 const meta: Meta<typeof CurrencyInput> = {
   title: 'DesignSystem/Atoms/CurrencyInput',
@@ -72,6 +74,6 @@ const meta: Meta<typeof CurrencyInput> = {
       },
     },
   },
-}
+};
 
-export default meta
+export default meta;

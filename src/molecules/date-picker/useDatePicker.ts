@@ -1,45 +1,49 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-import parseISO from 'date-fns/parseISO/index.js'
+import parseISO from 'date-fns/parseISO/index.js';
 
-import { formatDateProperty, PropertyType } from '../../utils/index.js'
+import { formatDateProperty, PropertyType } from '../../utils/index.js';
 
-export const useDatePicker = ({ value, propertyType, disabled, onChange }:
-{
-  onChange: (date: Date) => void,
-  value?: string|Date,
-  propertyType?: PropertyType,
-  disabled?: boolean
+export const useDatePicker = ({
+  value,
+  propertyType,
+  disabled,
+  onChange,
+}: {
+  onChange: (date: Date) => void;
+  value?: string | Date;
+  propertyType?: PropertyType;
+  disabled?: boolean;
 }): {
-  dateString?: string,
-  date?: Date,
-  isCalendarVisible: boolean,
-  setCalendarVisible: (isVisible: boolean) => void,
-  onDateChange: (newDate: Date) => void
+  dateString?: string;
+  date?: Date;
+  isCalendarVisible: boolean;
+  setCalendarVisible: (isVisible: boolean) => void;
+  onDateChange: (newDate: Date) => void;
 } => {
-  const [isCalendarVisible, setCalendarVisible] = useState(false)
+  const [isCalendarVisible, setCalendarVisible] = useState(false);
 
-  let date: Date | undefined
-  let dateString: string | undefined
+  let date: Date | undefined;
+  let dateString: string | undefined;
   if (value && value.constructor.name !== 'Date') {
-    const dateStringValue = value as string
+    const dateStringValue = value as string;
 
-    let dateNum: Date | undefined = parseISO(dateStringValue)
-    if (dateNum.toString() === 'Invalid Date') dateNum = undefined
+    let dateNum: Date | undefined = parseISO(dateStringValue);
+    if (dateNum.toString() === 'Invalid Date') dateNum = undefined;
     if (dateNum) {
-      date = new Date(dateNum)
-      dateString = formatDateProperty(date, propertyType)
+      date = new Date(dateNum);
+      dateString = formatDateProperty(date, propertyType);
     }
   } else if (value && value.constructor.name === 'Date') {
-    dateString = formatDateProperty(value as Date, propertyType)
+    dateString = formatDateProperty(value as Date, propertyType);
   }
   const onDateChange = (newDate: Date): void => {
     if (!disabled) {
-      onChange(newDate)
+      onChange(newDate);
     }
-  }
+  };
 
-  return { dateString, date, isCalendarVisible, setCalendarVisible, onDateChange }
-}
+  return { dateString, date, isCalendarVisible, setCalendarVisible, onDateChange };
+};
 
-export default useDatePicker
+export default useDatePicker;

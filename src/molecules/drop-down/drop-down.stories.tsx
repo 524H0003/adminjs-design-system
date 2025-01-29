@@ -1,16 +1,16 @@
-import { Meta, StoryObj } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import { Badge, Box, Button, Icon, Text } from '../../index.js'
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { DropDown, DropDownItem, DropDownMenu, DropDownProps, DropDownTrigger } from './index.js'
+import { Badge, Box, Button, Icon, Text } from '../../index.js';
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { DropDown, DropDownItem, DropDownMenu, DropDownProps, DropDownTrigger } from './index.js';
 
 export const Default: StoryObj<DropDownProps & { onClick: (e) => void }> = {
   render: ({ onClick, ...props }) => {
     const handleClick = (event) => {
-      event.preventDefault()
-      onClick(event)
-    }
+      event.preventDefault();
+      onClick(event);
+    };
 
     return (
       <StoryWrapper label="Button trigger with nested DropDownItems">
@@ -38,16 +38,16 @@ export const Default: StoryObj<DropDownProps & { onClick: (e) => void }> = {
           </DropDown>
         </Box>
       </StoryWrapper>
-    )
+    );
   },
-}
+};
 
 export const Custom: StoryObj<{ onClick: (e) => void }> = {
   render: ({ onClick }) => {
     const handleClick = (event) => {
-      event.preventDefault()
-      onClick(event)
-    }
+      event.preventDefault();
+      onClick(event);
+    };
 
     return (
       <StoryWrapper label="Badge trigger with TextContent">
@@ -65,9 +65,9 @@ export const Custom: StoryObj<{ onClick: (e) => void }> = {
           </DropDownMenu>
         </DropDown>
       </StoryWrapper>
-    )
+    );
   },
-}
+};
 
 const meta: Meta<typeof DropDown> = {
   title: 'DesignSystem/Molecules/DropDown',
@@ -77,6 +77,6 @@ const meta: Meta<typeof DropDown> = {
   argTypes: {
     stick: { options: ['left', 'right'], control: { type: 'select' } },
   },
-}
+};
 
-export default meta
+export default meta;

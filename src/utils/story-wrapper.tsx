@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-import { Box, BoxProps, Label } from '../index.js'
+import { Box, BoxProps, Label } from '../index.js';
 
 export type StoryWrapperProps = BoxProps & {
-  label: string
-  children?: React.ReactNode,
-  gap?: number
-}
+  label: string;
+  children?: React.ReactNode;
+  gap?: number;
+};
 
 const StoryWrapper: React.FC<StoryWrapperProps> = (props) => {
-  const { label, children, gap = 16, ...other } = props
+  const { label, children, gap = 16, ...other } = props;
   return (
     <Box variant="grey">
       <Label>{label}</Label>
@@ -17,7 +17,7 @@ const StoryWrapper: React.FC<StoryWrapperProps> = (props) => {
         {children}
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default StoryWrapper
+export default StoryWrapper;

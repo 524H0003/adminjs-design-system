@@ -1,8 +1,6 @@
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react';
 
-import {
-  NavigationElementProps,
-} from '../../molecules/navigation-element/navigation-element-props.js'
+import { NavigationElementProps } from '../../molecules/navigation-element/navigation-element-props.js';
 
 /**
  * Array of navigation elements. Extending {@link NavigationElementProps}
@@ -11,8 +9,8 @@ import {
  * @alias NavigationElementWithChildrenProps
  */
 export type NavigationElementWithChildrenProps = NavigationElementProps & {
-  elements?: Array<NavigationElementWithChildrenProps>,
-}
+  elements?: Array<NavigationElementWithChildrenProps>;
+};
 
 /**
  * Props passed to {@link Navigation} component
@@ -23,4 +21,4 @@ export type NavigationElementWithChildrenProps = NavigationElementProps & {
 export type NavigationProps = {
   label?: string;
   elements: Array<NavigationElementWithChildrenProps>;
-} & PropsWithChildren
+} & PropsWithChildren;

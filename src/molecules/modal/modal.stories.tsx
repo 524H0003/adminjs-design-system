@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react'
-import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
 
-import { Box, Button, Label, VariantType } from '../../index.js'
-import { Modal, ModalInline, ModalProps } from './index.js'
+import { Box, Button, Label, VariantType } from '../../index.js';
+import { Modal, ModalInline, ModalProps } from './index.js';
 
 const variants: VariantType[] = [
   'danger',
@@ -12,12 +12,12 @@ const variants: VariantType[] = [
   'secondary',
   'default',
   'light',
-]
+];
 
 export const Default: StoryObj<ModalProps> = {
   render: (props) => {
-    const { label, icon, title, variant, subTitle } = props
-    const [isVisible, setIsVisible] = useState(false)
+    const { label, icon, title, variant, subTitle } = props;
+    const [isVisible, setIsVisible] = useState(false);
     const modalProps = {
       label,
       icon,
@@ -27,7 +27,7 @@ export const Default: StoryObj<ModalProps> = {
       onOverlayClick: () => setIsVisible(false),
       onClose: () => setIsVisible(false),
       buttons: [{ label: 'Cancel' }, { label: 'Delete', variant }],
-    }
+    };
 
     return (
       <Box variant="grey">
@@ -41,9 +41,9 @@ export const Default: StoryObj<ModalProps> = {
           {isVisible && <Modal {...modalProps} />}
         </Box>
       </Box>
-    )
+    );
   },
-}
+};
 
 const meta: Meta<typeof Modal> = {
   title: 'DesignSystem/Molecules/Modal',
@@ -62,6 +62,6 @@ const meta: Meta<typeof Modal> = {
     icon: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
   },
-}
+};
 
-export default meta
+export default meta;

@@ -1,1 +1,1 @@
-export * from './loader.jsx'
+export * from './loader.jsx';

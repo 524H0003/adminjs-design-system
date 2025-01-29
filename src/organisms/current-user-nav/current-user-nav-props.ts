@@ -1,4 +1,4 @@
-import type { IconProps } from '../../atoms/icon/index.js'
+import type { IconProps } from '../../atoms/icon/index.js';
 
 /**
  * Action element passed to CurrentUserNavProps
@@ -7,17 +7,16 @@ import type { IconProps } from '../../atoms/icon/index.js'
  * @alias CurrentUserNavAction
  */
 export type CurrentUserNavAction = {
-  /** action label */
-  label: string
+  /** action label */ label: string;
   /** action OnClick handler - taking event as a param */
-  onClick?: (event: any) => void
+  onClick?: (event: any) => void;
   /** Action icon */
-  icon?: IconProps['icon']
+  icon?: IconProps['icon'];
   /** indicates if action is active */
-  isActive?: string
+  isActive?: string;
   /** href for an action */
-  href?: string
-}
+  href?: string;
+};
 
 /**
  * Props passed to {@link CurrentUserNav} component
@@ -26,14 +25,13 @@ export type CurrentUserNavAction = {
  * @alias CurrentUserNavProps
  */
 export type CurrentUserNavProps = {
-  /** User name */
-  name: string
+  /** User name */ name: string;
   /** User title - visible below the name */
-  title?: string
+  title?: string;
   /** Avatar url */
-  avatarUrl?: string
+  avatarUrl?: string;
   /** Array of all the actions visible on hover */
-  dropActions?: Array<CurrentUserNavAction>
+  dropActions?: Array<CurrentUserNavAction>;
   /** Array of all the actions visible by the user name */
-  lineActions?: Array<CurrentUserNavAction>
-}
+  lineActions?: Array<CurrentUserNavAction>;
+};

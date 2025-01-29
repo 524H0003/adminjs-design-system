@@ -6,5 +6,5 @@ declare module 'jw-paginate' {
     pages: Array<number>;
   }
 
-  export default function(total: number, current: number, perPage: number): PaginationResult
+  export default function (total: number, current: number, perPage: number): PaginationResult;
 }

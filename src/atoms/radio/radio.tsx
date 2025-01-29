@@ -1,8 +1,8 @@
-import React, { ChangeEvent, useState } from 'react'
-import { styled } from '@styled-components'
+import React, { ChangeEvent, useState } from 'react';
+import { styled } from '@styled-components';
 
-import focusShadowStyle from '../../utils/focus-shadow.style.js'
-import { CheckboxRadioContainer } from '../check-box/index.js'
+import focusShadowStyle from '../../utils/focus-shadow.style.js';
+import { CheckboxRadioContainer } from '../check-box/index.js';
 
 const Circle = styled.span`
   display: block;
@@ -15,7 +15,7 @@ const Circle = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
-`
+`;
 
 // Hide checkbox visually but remain accessible to screen readers.
 // Source: https://polished.js.org/docs/#hidevisually
@@ -29,25 +29,27 @@ const HiddenRadio = styled.input.attrs({ type: 'radio' })`
   position: absolute;
   white-space: nowrap;
   width: 1px;
-`
+`;
 
 type StyledProps = {
   checked?: boolean;
   disabled?: boolean;
-}
+};
 
 const radioBackground = (theme, checked, disabled): string => {
   if (checked) {
-    return disabled ? theme.colors.grey40 : theme.colors.primary100
+    return disabled ? theme.colors.grey40 : theme.colors.primary100;
   }
-  return theme.colors.white
-}
+  return theme.colors.white;
+};
 
 const StyledRadio = styled.span<StyledProps>`
   display: inline-block;
   width: 16px;
   cursor: pointer;
-  border: 1px solid ${({ theme, checked, disabled }): string => (checked && !disabled ? theme.colors.primary100 : theme.colors.grey40)};
+  border: 1px solid
+    ${({ theme, checked, disabled }): string =>
+      checked && !disabled ? theme.colors.primary100 : theme.colors.grey40};
   border-radius: 1000px;
   height: 16px;
   transition: all 150ms;
@@ -63,10 +65,11 @@ const StyledRadio = styled.span<StyledProps>`
     visibility: ${({ checked }): string => (checked ? 'visible' : 'hidden')};
   }
 
-  background: ${({ checked, theme, disabled }): string => radioBackground(theme, checked, disabled)};
-`
+  background: ${({ checked, theme, disabled }): string =>
+    radioBackground(theme, checked, disabled)};
+`;
 
-export type RadioProps = React.HTMLProps<HTMLInputElement>
+export type RadioProps = React.HTMLProps<HTMLInputElement>;
 
 /**
  * @typedef {object} RadioProps
@@ -105,16 +108,16 @@ export type RadioProps = React.HTMLProps<HTMLInputElement>
  * @section design-system
  */
 const Radio: React.FC<RadioProps> = (props) => {
-  const { className, checked, onChange, disabled, ...restProps } = props
+  const { className, checked, onChange, disabled, ...restProps } = props;
 
-  const [isChecked, setChecked] = useState(checked ?? false)
-  const actuallyChecked = checked ?? isChecked
+  const [isChecked, setChecked] = useState(checked ?? false);
+  const actuallyChecked = checked ?? isChecked;
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    setChecked(!event.target.checked)
+    setChecked(!event.target.checked);
     if (onChange) {
-      onChange(event)
+      onChange(event);
     }
-  }
+  };
 
   return (
     <CheckboxRadioContainer className={className}>
@@ -122,7 +125,7 @@ const Radio: React.FC<RadioProps> = (props) => {
         checked={actuallyChecked}
         onChange={handleChange}
         // eslint-disable-next-line @typescript-eslint/ban-types
-        {...restProps as {}}
+        {...(restProps as {})}
         disabled={disabled}
       />
       <StyledRadio
@@ -133,10 +136,10 @@ const Radio: React.FC<RadioProps> = (props) => {
         <Circle />
       </StyledRadio>
     </CheckboxRadioContainer>
-  )
-}
+  );
+};
 
-Radio.displayName = 'Radio'
+Radio.displayName = 'Radio';
 
-export { Radio }
-export default Radio
+export { Radio };
+export default Radio;

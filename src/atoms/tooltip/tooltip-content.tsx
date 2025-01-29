@@ -1,13 +1,13 @@
-import { styled } from '@styled-components'
+import { styled } from '@styled-components';
 
-import { Box } from '../box/index.js'
+import { Box } from '../box/index.js';
 
 /**
  * @component
  * @private
  */
-export const TooltipContent = styled(Box)``
+export const TooltipContent = styled(Box)``;
 
-TooltipContent.displayName = 'TooltipContent'
+TooltipContent.displayName = 'TooltipContent';
 
-export default TooltipContent
+export default TooltipContent;

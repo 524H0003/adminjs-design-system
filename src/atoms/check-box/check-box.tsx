@@ -1,14 +1,14 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
-import { styled, css } from '@styled-components'
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { styled, css } from '@styled-components';
 
-import focusShadowStyle from '../../utils/focus-shadow.style.js'
-import { Label } from '../label/index.js'
+import focusShadowStyle from '../../utils/focus-shadow.style.js';
+import { Label } from '../label/index.js';
 
 const Icon = styled.svg`
   fill: none;
   stroke: white;
   stroke-width: 2px;
-`
+`;
 
 export const CheckboxRadioContainer = styled.span`
   position: relative;
@@ -19,7 +19,7 @@ export const CheckboxRadioContainer = styled.span`
     vertical-align: middle;
     margin-bottom: ${({ theme }) => theme.space.sm};
   }
-`
+`;
 
 // Hide checkbox visually but remain accessible to screen readers.
 // Source: https://polished.js.org/docs/#hidevisually
@@ -33,28 +33,31 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   position: absolute;
   white-space: nowrap;
   width: 1px;
-`
+`;
 
 type StyledProps = {
   checked?: boolean;
   disabled?: boolean;
-}
+};
 
 const checkboxBackground = (theme, checked, disabled): string => {
   if (checked) {
-    return disabled ? theme.colors.grey40 : theme.colors.primary100
+    return disabled ? theme.colors.grey40 : theme.colors.primary100;
   }
-  return 'transparent'
-}
+  return 'transparent';
+};
 
 const StyledCheckbox = styled.a<StyledProps>`
   display: inline-block;
   width: 16px;
   /* when it is placed within a container setting different font size */
   font-size: 12px;
-  border: 1px solid ${({ theme, checked, disabled }): string => (checked && !disabled ? theme.colors.primary100 : theme.colors.inputBorder)};
+  border: 1px solid
+    ${({ theme, checked, disabled }): string =>
+      checked && !disabled ? theme.colors.primary100 : theme.colors.inputBorder};
   height: 16px;
-  background: ${({ checked, theme, disabled }): string => checkboxBackground(theme, checked, disabled)};
+  background: ${({ checked, theme, disabled }): string =>
+    checkboxBackground(theme, checked, disabled)};
   transition: all 150ms;
   position: relative;
   border-radius: 2px;
@@ -69,9 +72,11 @@ const StyledCheckbox = styled.a<StyledProps>`
     visibility: ${(props): string => (props.checked ? 'visible' : 'hidden')};
   }
 
-  ${({ disabled }) => (!disabled && css`
-    cursor: pointer;
-  `)}
+  ${({ disabled }) =>
+    !disabled &&
+    css`
+      cursor: pointer;
+    `}
 
   &:after {
     content: '';
@@ -86,9 +91,9 @@ const StyledCheckbox = styled.a<StyledProps>`
   &:after:before {
     opacity: 0.1;
   }
-`
+`;
 
-export type CheckBoxProps = React.HTMLProps<HTMLInputElement>
+export type CheckBoxProps = React.HTMLProps<HTMLInputElement>;
 
 /**
  * @typedef {object} CheckBoxProps
@@ -125,21 +130,21 @@ export type CheckBoxProps = React.HTMLProps<HTMLInputElement>
  * @section design-system
  */
 const CheckBox: React.FC<CheckBoxProps> = (props) => {
-  const { className, checked, onChange, disabled, ...restProps } = props
+  const { className, checked, onChange, disabled, ...restProps } = props;
 
-  const [isChecked, setChecked] = useState(checked ?? false)
+  const [isChecked, setChecked] = useState(checked ?? false);
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    if (disabled) return
+    if (disabled) return;
     if (onChange) {
-      onChange(event)
+      onChange(event);
     } else {
-      setChecked(!event.target.checked)
+      setChecked(!event.target.checked);
     }
-  }
+  };
 
   useEffect(() => {
-    setChecked(checked ?? false)
-  }, [checked])
+    setChecked(checked ?? false);
+  }, [checked]);
 
   return (
     <CheckboxRadioContainer className={[className ?? '', 'adminjs_Checkbox'].join(' ')}>
@@ -147,7 +152,7 @@ const CheckBox: React.FC<CheckBoxProps> = (props) => {
         checked={isChecked}
         onChange={handleChange}
         // eslint-disable-next-line @typescript-eslint/ban-types
-        {...restProps as {}}
+        {...(restProps as {})}
         disabled={disabled}
       />
       <StyledCheckbox
@@ -160,10 +165,10 @@ const CheckBox: React.FC<CheckBoxProps> = (props) => {
         </Icon>
       </StyledCheckbox>
     </CheckboxRadioContainer>
-  )
-}
+  );
+};
 
-CheckBox.displayName = 'CheckBox'
+CheckBox.displayName = 'CheckBox';
 
-export { CheckBox }
-export default CheckBox
+export { CheckBox };
+export default CheckBox;

@@ -1,7 +1,7 @@
-import { styled } from '@styled-components'
+import { styled } from '@styled-components';
 
-import { Button } from '../button/index.js'
-import { themeGet, cssClass } from '../../utils/index.js'
+import { Button } from '../button/index.js';
+import { themeGet, cssClass } from '../../utils/index.js';
 
 /**
  * @component
@@ -32,12 +32,12 @@ const TableCaption = styled.caption`
     color: ${themeGet('colors', 'white')};
     border-color: ${themeGet('colors', 'white')};
   }
-`
+`;
 
 TableCaption.defaultProps = {
   className: cssClass('TableCaption'),
-}
+};
 
-TableCaption.displayName = 'TableCaption'
+TableCaption.displayName = 'TableCaption';
 
-export default TableCaption
+export default TableCaption;

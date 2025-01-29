@@ -1,88 +1,91 @@
-import { space, color as styledColor, typography, variant as styledVariant } from 'styled-system'
-import { darken, rgba } from 'polished'
-import { css, DefaultTheme } from '@styled-components'
+import { space, color as styledColor, typography, variant as styledVariant } from 'styled-system';
+import { darken, rgba } from 'polished';
+import { css, DefaultTheme } from '@styled-components';
 
-import { ColorVariants, VariantType } from '../../theme.js'
-import { cssClass, themeGet } from '../../utils/index.js'
-import { ButtonProps } from './button-props.js'
+import { ColorVariants, VariantType } from '../../theme.js';
+import { cssClass, themeGet } from '../../utils/index.js';
+import { ButtonProps } from './button-props.js';
 
-const getColor = (theme: DefaultTheme) => (color: string): string => theme.colors[ColorVariants[color] || 'primary100']
+const getColor = (theme: DefaultTheme) => (color: string): string => theme.colors[ColorVariants[color] || 'primary100'];
 
 const legacyButtonVariants = (
   ['danger', 'default', 'info', 'primary', 'secondary', 'success'] as VariantType[]
-).reduce((acc, color) => ({
-  ...acc,
-  [color]: {
-    className: cssClass(['Button', 'Button_Legacy']),
-    borderColor: 'currentColor',
-    color: (theme) => getColor(theme)(color),
-    '&:hover': {
-      bg: (theme) => rgba(getColor(theme)(color), 0.05),
+).reduce(
+  (acc, color) => ({
+    ...acc,
+    [color]: {
+      className: cssClass(['Button', 'Button_Legacy']),
+      borderColor: 'currentColor',
+      color: (theme: DefaultTheme) => getColor(theme)(color),
+      '&:hover': {
+        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.05),
+      },
+      '&:focus, &:active': {
+        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.1),
+      },
     },
-    '&:focus, &:active': {
-      bg: (theme) => rgba(getColor(theme)(color), 0.1),
-    },
-  },
-}), {})
+  }),
+  {},
+);
 
 const buttonVariants = ({ color = 'primary' }: ButtonProps) => styledVariant({
   variants: {
     ...legacyButtonVariants,
     contained: {
       className: cssClass(['Button', 'Button_Contained']),
-      color: (theme) => theme.colors.white,
-      bg: (theme) => getColor(theme)(color),
-      borderColor: (theme) => getColor(theme)(color),
+      color: (theme: { colors: { white: any; }; }) => theme.colors.white,
+      bg: (theme: DefaultTheme) => getColor(theme)(color),
+      borderColor: (theme: DefaultTheme) => getColor(theme)(color),
       '&:hover': {
-        bg: (theme) => darken(0.15, getColor(theme)(color)),
-        borderColor: (theme) => darken(0.15, getColor(theme)(color)),
+        bg: (theme: DefaultTheme) => darken(0.15, getColor(theme)(color)),
+        borderColor: (theme: DefaultTheme) => darken(0.15, getColor(theme)(color)),
       },
       '&:focus, &:active': {
-        bg: (theme) => darken(0.2, getColor(theme)(color)),
-        borderColor: (theme) => darken(0.2, getColor(theme)(color)),
+        bg: (theme: DefaultTheme) => darken(0.2, getColor(theme)(color)),
+        borderColor: (theme: DefaultTheme) => darken(0.2, getColor(theme)(color)),
       },
     },
     outlined: {
       className: cssClass(['Button', 'Button_Outlined']),
       borderColor: 'currentColor',
-      color: (theme) => getColor(theme)(color),
+      color: (theme: DefaultTheme) => getColor(theme)(color),
       '&:hover': {
-        bg: (theme) => rgba(getColor(theme)(color), 0.05),
+        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.05),
       },
       '&:focus, &:active': {
-        bg: (theme) => rgba(getColor(theme)(color), 0.1),
+        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.1),
       },
     },
     light: {
       className: cssClass(['Button', 'Button_Light']),
-      color: (theme) => color && getColor(theme)(color),
+      color: (theme: DefaultTheme) => color && getColor(theme)(color),
       borderColor: 'grey40',
       [`& .${cssClass('Icon')} svg`]: {
         stroke: 'grey80',
       },
       '&:hover': {
-        bg: (theme) => rgba(getColor(theme)(color), 0.05),
+        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.05),
       },
       '&:focus, &:active': {
-        bg: (theme) => rgba(getColor(theme)(color), 0.1),
+        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.1),
       },
     },
     text: {
       className: cssClass(['Button', 'Button_Text']),
-      color: (theme) => color && getColor(theme)(color),
+      color: (theme: DefaultTheme) => color && getColor(theme)(color),
       borderColor: 'transparent',
       '&:disabled': {
         'border-color': 'transparent',
       },
       '&:hover': {
-        bg: (theme) => rgba(getColor(theme)(color), 0.05),
+        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.05),
       },
       '&:focus, &:active': {
-        bg: (theme) => rgba(getColor(theme)(color), 0.1),
+        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.1),
       },
     },
   },
-})
+});
 
 const sizeVariants = styledVariant({
   prop: 'size',
@@ -124,7 +127,7 @@ const sizeVariants = styledVariant({
       },
     },
   },
-})
+});
 
 /**
  * Button CSS Styles which can be reused in another button-like component with styled-components
@@ -191,6 +194,6 @@ export const ButtonCSS: ReturnType<typeof css> = css<ButtonProps>`
 
   ${buttonVariants};
   ${sizeVariants};
-`
+`;
 
-export default ButtonCSS
+export default ButtonCSS;

@@ -1,9 +1,9 @@
 /* eslint-disable no-shadow */
-import { space, SpaceProps, LayoutProps, variant, layout, color, ColorProps } from 'styled-system'
-import { styled } from '@styled-components'
+import { space, SpaceProps, LayoutProps, variant, layout, color, ColorProps } from 'styled-system';
+import { styled } from '@styled-components';
 
-import { cssClass } from '../../utils/css-class.js'
-import { DEFAULT_DRAWER_WIDTH } from '../../constants.js'
+import { cssClass } from '../../utils/css-class.js';
+import { DEFAULT_DRAWER_WIDTH } from '../../constants.js';
 
 /**
  * Props for Drawer component. Apart from those described below it also extends all
@@ -15,14 +15,16 @@ import { DEFAULT_DRAWER_WIDTH } from '../../constants.js'
  * @extends ColorProps
  * @memberof Drawer
  */
-export type DrawerProps = SpaceProps & LayoutProps & ColorProps & {
-  /** Indicates if drawer should be hidden */
-  isHidden?: boolean;
-  /**
-   * Drawer variant
-   */
-  variant?: 'filter';
-}
+export type DrawerProps = SpaceProps &
+  LayoutProps &
+  ColorProps & {
+    /** Indicates if drawer should be hidden */
+    isHidden?: boolean;
+    /**
+     * Drawer variant
+     */
+    variant?: 'filter';
+  };
 
 const variants = variant({
   variants: {
@@ -32,7 +34,7 @@ const variants = variant({
       className: cssClass(['Drawer', 'Drawer_Filter']),
     },
   },
-})
+});
 
 /**
  * @classdesc
@@ -106,22 +108,22 @@ const Drawer = styled.section<DrawerProps>`
   transform: translateX(${({ isHidden }) => (isHidden ? '100%' : '0%')});
   transition: transform 0.25s ease-in-out;
 
-  box-shadow: -1px 0px 0px #EEEEEF, -4px 0px 16px rgba(107, 119, 129, 0.1);
+  box-shadow: -1px 0px 0px #eeeeef, -4px 0px 16px rgba(107, 119, 129, 0.1);
   background-color: ${({ theme }) => theme.colors.container};
   overflow-y: auto;
   overflow-x: hidden;
-  
+
   ${space};
   ${color};
   ${layout};
   ${variants};
-`
+`;
 
 Drawer.defaultProps = {
   width: DEFAULT_DRAWER_WIDTH,
   className: cssClass('Drawer'),
-}
-Drawer.displayName = 'Drawer'
+};
+Drawer.displayName = 'Drawer';
 
-export { Drawer }
-export default Drawer
+export { Drawer };
+export default Drawer;

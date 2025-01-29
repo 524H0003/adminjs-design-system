@@ -1,10 +1,10 @@
-import React, { PropsWithChildren } from 'react'
-import { styled } from '@styled-components'
+import React, { PropsWithChildren } from 'react';
+import { styled } from '@styled-components';
 
-import { cssClass } from '../../utils/index.js'
-import * as Illustrations from '../illustrations/index.js'
+import { cssClass } from '../../utils/index.js';
+import * as Illustrations from '../illustrations/index.js';
 
-export type IllustrationVariant = keyof typeof Illustrations
+export type IllustrationVariant = keyof typeof Illustrations;
 
 /**
  * @memberof Illustration
@@ -12,12 +12,12 @@ export type IllustrationVariant = keyof typeof Illustrations
  */
 export type IllustrationProps = {
   /** Available illustration variant */
-  variant: IllustrationVariant
+  variant: IllustrationVariant;
   /** Optional max width restrictions */
-  width?: number
+  width?: number;
   /** Optional max height restrictions */
-  height?: number
-}
+  height?: number;
+};
 
 const Wrapper = styled.div.attrs((props) => ({
   className: cssClass('Illustration', props.className),
@@ -29,19 +29,19 @@ const Wrapper = styled.div.attrs((props) => ({
   [stroke='#3B3552'] {
     stroke: ${({ theme }) => theme.colors.accent};
   }
-`
+`;
 
-type RawIllustrationType = IllustrationProps & PropsWithChildren
+type RawIllustrationType = IllustrationProps & PropsWithChildren;
 
 const RawIllustration: React.FC<RawIllustrationType> = (props) => {
-  const { variant, ...other } = props
-  const IllustrationComponent = Illustrations[variant]
+  const { variant, ...other } = props;
+  const IllustrationComponent = Illustrations[variant];
   return (
     <Wrapper>
       <IllustrationComponent {...other} />
     </Wrapper>
-  )
-}
+  );
+};
 
 /**
  * @classdesc
@@ -77,8 +77,8 @@ const RawIllustration: React.FC<RawIllustrationType> = (props) => {
  * )
  * @section design-system
  */
-export const Illustration = RawIllustration
+export const Illustration = RawIllustration;
 
-Illustration.displayName = 'Illustration'
+Illustration.displayName = 'Illustration';
 
-export default Illustration
+export default Illustration;

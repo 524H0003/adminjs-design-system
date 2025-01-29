@@ -1,8 +1,8 @@
 /* eslint-disable import/prefer-default-export */
-import { styled } from '@styled-components'
+import { styled } from '@styled-components';
 
-import { Box } from '../box/index.js'
-import { themeGet, cssClass } from '../../utils/index.js'
+import { Box } from '../box/index.js';
+import { themeGet, cssClass } from '../../utils/index.js';
 
 /**
  * @classdesc
@@ -35,13 +35,13 @@ import { themeGet, cssClass } from '../../utils/index.js'
 const Section = styled<any>(Box)`
   border: 1px dashed ${({ theme }) => theme.colors.inputBorder};
   padding: ${themeGet('space', 'lg')};
-`
+`;
 
 Section.defaultProps = {
   className: cssClass('Section'),
-}
+};
 
-Section.displayName = 'Section'
+Section.displayName = 'Section';
 
-export { Section }
-export default Section
+export { Section };
+export default Section;

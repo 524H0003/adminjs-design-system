@@ -1,9 +1,9 @@
-import React from 'react'
-import { Meta, StoryFn, StoryObj } from '@storybook/react'
+import React from 'react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import StoryWrapper from '../../utils/story-wrapper.jsx'
-import { Box, Label, Text } from '../index.js'
-import { Input } from './index.js'
+import StoryWrapper from '../../utils/story-wrapper.jsx';
+import { Box, Label, Text } from '../index.js';
+import { Input } from './index.js';
 
 const inputTypes = [
   'email',
@@ -16,10 +16,10 @@ const inputTypes = [
   'time',
   'url',
   'week',
-]
-const inputVariants = ['sm', 'lg', 'xl', 'default']
+];
+const inputVariants = ['sm', 'lg', 'xl', 'default'];
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {};
 
 export const Examples: StoryFn = () => (
   <Box width={1}>
@@ -54,7 +54,7 @@ export const Examples: StoryFn = () => (
       </Box>
     </StoryWrapper>
   </Box>
-)
+);
 
 const meta: Meta<typeof Input> = {
   title: 'DesignSystem/Atoms/Input',
@@ -72,6 +72,6 @@ const meta: Meta<typeof Input> = {
     width: { control: { type: 'number', min: 0, max: 1, step: 0.1 } },
     type: { options: inputTypes, control: { type: 'select' } },
   },
-}
+};
 
-export default meta
+export default meta;
