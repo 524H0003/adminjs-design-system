@@ -6,7 +6,8 @@ import { ColorVariants, VariantType } from '../../theme.js';
 import { cssClass, themeGet } from '../../utils/index.js';
 import { ButtonProps } from './button-props.js';
 
-const getColor = (theme: DefaultTheme) => (color: string): string => theme.colors[ColorVariants[color] || 'primary100'];
+const getColor = (theme: DefaultTheme) => (color: string) =>
+  theme.colors[ColorVariants[color] || 'primary100'];
 
 const legacyButtonVariants = (
   ['danger', 'default', 'info', 'primary', 'secondary', 'success'] as VariantType[]
@@ -28,64 +29,65 @@ const legacyButtonVariants = (
   {},
 );
 
-const buttonVariants = ({ color = 'primary' }: ButtonProps) => styledVariant({
-  variants: {
-    ...legacyButtonVariants,
-    contained: {
-      className: cssClass(['Button', 'Button_Contained']),
-      color: (theme: { colors: { white: any; }; }) => theme.colors.white,
-      bg: (theme: DefaultTheme) => getColor(theme)(color),
-      borderColor: (theme: DefaultTheme) => getColor(theme)(color),
-      '&:hover': {
-        bg: (theme: DefaultTheme) => darken(0.15, getColor(theme)(color)),
-        borderColor: (theme: DefaultTheme) => darken(0.15, getColor(theme)(color)),
+const buttonVariants = ({ color = 'primary' }: ButtonProps) =>
+  styledVariant({
+    variants: {
+      ...legacyButtonVariants,
+      contained: {
+        className: cssClass(['Button', 'Button_Contained']),
+        color: (theme: { colors: { white: any } }) => theme.colors.white,
+        bg: (theme: DefaultTheme) => getColor(theme)(color),
+        borderColor: (theme: DefaultTheme) => getColor(theme)(color),
+        '&:hover': {
+          bg: (theme: DefaultTheme) => darken(0.15, getColor(theme)(color)),
+          borderColor: (theme: DefaultTheme) => darken(0.15, getColor(theme)(color)),
+        },
+        '&:focus, &:active': {
+          bg: (theme: DefaultTheme) => darken(0.2, getColor(theme)(color)),
+          borderColor: (theme: DefaultTheme) => darken(0.2, getColor(theme)(color)),
+        },
       },
-      '&:focus, &:active': {
-        bg: (theme: DefaultTheme) => darken(0.2, getColor(theme)(color)),
-        borderColor: (theme: DefaultTheme) => darken(0.2, getColor(theme)(color)),
+      outlined: {
+        className: cssClass(['Button', 'Button_Outlined']),
+        borderColor: 'currentColor',
+        color: (theme: DefaultTheme) => getColor(theme)(color),
+        '&:hover': {
+          bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.05),
+        },
+        '&:focus, &:active': {
+          bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.1),
+        },
+      },
+      light: {
+        className: cssClass(['Button', 'Button_Light']),
+        color: (theme: DefaultTheme) => color && getColor(theme)(color),
+        borderColor: 'grey40',
+        [`& .${cssClass('Icon')} svg`]: {
+          stroke: 'grey80',
+        },
+        '&:hover': {
+          bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.05),
+        },
+        '&:focus, &:active': {
+          bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.1),
+        },
+      },
+      text: {
+        className: cssClass(['Button', 'Button_Text']),
+        color: (theme: DefaultTheme) => color && getColor(theme)(color),
+        borderColor: 'transparent',
+        '&:disabled': {
+          'border-color': 'transparent',
+        },
+        '&:hover': {
+          bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.05),
+        },
+        '&:focus, &:active': {
+          bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.1),
+        },
       },
     },
-    outlined: {
-      className: cssClass(['Button', 'Button_Outlined']),
-      borderColor: 'currentColor',
-      color: (theme: DefaultTheme) => getColor(theme)(color),
-      '&:hover': {
-        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.05),
-      },
-      '&:focus, &:active': {
-        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.1),
-      },
-    },
-    light: {
-      className: cssClass(['Button', 'Button_Light']),
-      color: (theme: DefaultTheme) => color && getColor(theme)(color),
-      borderColor: 'grey40',
-      [`& .${cssClass('Icon')} svg`]: {
-        stroke: 'grey80',
-      },
-      '&:hover': {
-        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.05),
-      },
-      '&:focus, &:active': {
-        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.1),
-      },
-    },
-    text: {
-      className: cssClass(['Button', 'Button_Text']),
-      color: (theme: DefaultTheme) => color && getColor(theme)(color),
-      borderColor: 'transparent',
-      '&:disabled': {
-        'border-color': 'transparent',
-      },
-      '&:hover': {
-        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.05),
-      },
-      '&:focus, &:active': {
-        bg: (theme: DefaultTheme) => rgba(getColor(theme)(color), 0.1),
-      },
-    },
-  },
-});
+  });
 
 const sizeVariants = styledVariant({
   prop: 'size',

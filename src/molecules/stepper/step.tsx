@@ -17,7 +17,7 @@ export type OnStepClickHandler = (
   /**
    * The same number what was passed to a {@link Step}
    */
-  number?: number | string
+  number?: number | string,
 ) => boolean | void;
 
 /**

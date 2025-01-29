@@ -26,7 +26,7 @@ const validateContentType = (mimeTypes: undefined | Array<string>, mimeType: str
 
 const validateSize = (
   maxSize: string | number | undefined,
-  size: string | number | null
+  size: string | number | null,
 ): boolean => {
   if (!maxSize) {
     return true;
@@ -263,7 +263,7 @@ const DropZone: React.FC<DropZoneProps> = (props) => {
       }
       setFilesToUpload(newItems);
     },
-    [filesToUpload, setFilesToUpload, onChange]
+    [filesToUpload, setFilesToUpload, onChange],
   );
 
   const onDrop = useCallback(
@@ -284,7 +284,7 @@ const DropZone: React.FC<DropZoneProps> = (props) => {
             translate(t.unsupportedType, {
               fileName: file.name,
               fileType: file.type,
-            })
+            }),
           );
           return;
         }
@@ -306,7 +306,7 @@ const DropZone: React.FC<DropZoneProps> = (props) => {
       }
       setFilesToUpload(newFiles);
     },
-    [onChange, setFilesToUpload, setIsDragging]
+    [onChange, setFilesToUpload, setIsDragging],
   );
 
   const displayUploadLimit = useCallback(() => {

@@ -17,7 +17,7 @@ export const PortalUtils = {
 
   createPortalForKey: function createPortalForKey<Props>(
     idKey: string,
-    Component: FC<Props>
+    Component: FC<Props>,
   ): FC<Props & JSX.IntrinsicAttributes> {
     const Portal: FC<Props & JSX.IntrinsicAttributes> = (props) => {
       const [id] = useState(generateId(idKey));

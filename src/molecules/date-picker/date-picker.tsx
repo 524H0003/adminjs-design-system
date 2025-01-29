@@ -252,7 +252,7 @@ const parseCustomMask = (mask: DateMaskOverride) =>
 const getDateInputProps = (
   // eslint-disable-next-line default-param-last
   propertyType = 'datetime',
-  props: Pick<DatePickerProps, 'placeholderText' | 'dateFormat' | 'inputMask'>
+  props: Pick<DatePickerProps, 'placeholderText' | 'dateFormat' | 'inputMask'>,
 ) => {
   const { dateFormat, placeholderText, inputMask } = props;
   const defaultProps = defaultDateProps[propertyType];

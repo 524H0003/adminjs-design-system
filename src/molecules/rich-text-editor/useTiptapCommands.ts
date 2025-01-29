@@ -30,17 +30,17 @@ const useTiptapCommands = (props: useTiptapCommandsProps): TiptapCommand[] => {
     command(
       'textAlign.center',
       () => editor.chain().focus().setTextAlign('center').run(),
-      'AlignCenter'
+      'AlignCenter',
     ),
     command(
       'textAlign.right',
       () => editor.chain().focus().setTextAlign('right').run(),
-      'AlignRight'
+      'AlignRight',
     ),
     command(
       'textAlign.justify',
       () => editor.chain().focus().setTextAlign('justify').run(),
-      'AlignJustify'
+      'AlignJustify',
     ),
 
     command('bulletList', () => editor.chain().focus().toggleBulletList().run(), 'BulletList'),

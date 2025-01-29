@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { styled, css } from '@styled-components';
+import { styled, css, DefaultTheme } from '@styled-components';
 
 import focusShadowStyle from '../../utils/focus-shadow.style.js';
 import { Label } from '../label/index.js';
@@ -40,7 +40,11 @@ type StyledProps = {
   disabled?: boolean;
 };
 
-const checkboxBackground = (theme, checked, disabled): string => {
+const checkboxBackground = (
+  theme: DefaultTheme,
+  checked: boolean | undefined,
+  disabled: boolean | undefined,
+): string => {
   if (checked) {
     return disabled ? theme.colors.grey40 : theme.colors.primary100;
   }

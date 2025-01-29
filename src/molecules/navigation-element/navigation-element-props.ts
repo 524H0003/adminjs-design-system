@@ -38,5 +38,5 @@ export type NavigationElementOnClickHandler = (
   /** React.MouseEvent */
   event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
   /** All props (along with the `id`) are also passed to the handler */
-  props: NavigationElementProps
+  props: NavigationElementProps,
 ) => void;

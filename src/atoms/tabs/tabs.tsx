@@ -122,12 +122,12 @@ export const Tabs: React.FC<TabsProps> = ({
 
   const unregisterTab = useCallback(
     (id: string) => setTabs((newTabs) => newTabs.filter((t) => t.id !== id)),
-    []
+    [],
   );
 
   const memoizedContext = useMemo(
     () => ({ currentTab, registerTab, unregisterTab }),
-    [currentTab, registerTab, unregisterTab]
+    [currentTab, registerTab, unregisterTab],
   );
 
   return (

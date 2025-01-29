@@ -52,13 +52,12 @@ export const Tooltip: React.FC<PropsWithChildren<Props>> = (props) => {
     setIsVisible(false);
   };
 
-  // eslint-disable-next-line react/no-unstable-nested-components
   const ChildWithRef = forwardRef((triggerProps, ref) =>
     React.cloneElement(TriggerElement, {
       ...triggerProps,
       displayName: 'TooltipTrigger',
       ref,
-    })
+    }),
   ) as any;
 
   return (

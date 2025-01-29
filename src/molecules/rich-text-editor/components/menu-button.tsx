@@ -27,7 +27,7 @@ const MenuButton: FC<MenuButtonProps> = (props) => {
 
   const isActive = useMemo(
     () => (editor.isActive(attributes || name) ? 'active' : ''),
-    [name, attributes]
+    [name, attributes],
   );
 
   // Using icons from: https://github.com/Keyamoon/IcoMoon-Free

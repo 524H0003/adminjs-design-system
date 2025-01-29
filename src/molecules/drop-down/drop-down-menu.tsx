@@ -25,7 +25,7 @@ export type DropDownMenuProps = PropsWithChildren<
 export const DropDownMenu = styled(Box).attrs<DropDownMenuProps>((props) => ({
   className: cssClass(
     [`DropDown-Stick-${props.stick || DEFAULT_STICK}`, 'DropDownMenu'],
-    props.className
+    props.className,
   ),
 }))<DropDownMenuProps>`
   background: ${({ theme }) => theme.colors.container};
